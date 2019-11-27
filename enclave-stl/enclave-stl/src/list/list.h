@@ -5,11 +5,11 @@
 
 #include <stdlib.h>
 
-typedef struct list;
 
-typedef struct list {
+struct {
+	int size;
 	void *data[];
-};
+} list;
 
 _Bool exist(int index);
 
