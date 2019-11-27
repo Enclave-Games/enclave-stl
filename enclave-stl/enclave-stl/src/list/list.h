@@ -1,5 +1,3 @@
-// Test implementation//
-
 #ifndef ENCLAVE_STL_LIST
 #define ENCLAVE_STL_LIST
 
