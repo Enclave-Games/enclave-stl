@@ -1,26 +1,35 @@
 #ifndef ENCLAVE_STL_LIST
 #define ENCLAVE_STL_LIST
 
-#include <stdlib.h>
+namespace enclave_stl
+{
+	template<typename Type>
+	class list
+	{
+	public:
+		list();
 
+		bool exist(const int index);
 
-struct {
-	int size;
-	void *data[];
-} list;
+		bool exist(Type* element);
 
-_Bool exist(int index);
+		int is_empty();
 
-_Bool exist(void* element);
+		void add(int index, Type* element);
 
-_Bool is_empty();
+		void add(Type element);
 
-void add(int index, void* element);
+		void remove(int index);
 
-void add(void* element);
+		void remove(Type* element);
 
-void remove(int index);
+		virtual ~list();
 
-void remove(void* element);
+	private:
+		int _size = 10;
+		Type _data[];
+	};
+}
+
 
 #endif
