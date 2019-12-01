@@ -137,7 +137,8 @@
   <ItemGroup>
     <ClCompile Include="src\algorithms\binary_search.c" />
     <ClCompile Include="src\list\linked_list.c" />
-    <ClCompile Include="src\list\list.c" />
+    <ClCompile Include="src\list\list.cpp" />
+    <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\map\hash_map.c" />
     <ClCompile Include="src\map\map.c" />
     <ClCompile Include="src\map\multimap.c" />
