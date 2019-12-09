@@ -6,7 +6,6 @@ namespace enclave_stl
 	template <typename Type>
 	list<Type>::list()
 	{
-		_size = 0;
 		elements = new Type[_size];
 	}
 
