@@ -11,10 +11,24 @@ namespace enclave_stl
 	}
 
 	template <typename Type>
-	void list<Type>::add(const Type& _element) // test implementation
+	list<Type>::list(unsigned long initial_capacity)
 	{
-		//elements[_size++] = _element;
-		_size++;
+		this->initial_capacity = initial_capacity;
+		this->_with_initial_capacity = true;
+		elements = new Type[initial_capacity];
+	}
+
+	template <typename Type>
+	void list<Type>::add(const Type& _element) // TODO: upgrade it
+	{
+		if (_with_initial_capacity)
+		{
+			elements[initial_capacity++] = _element;
+		}
+		else
+		{
+			elements[_size++] = _element;
+		}
 	}
 
 	template <typename Type>
