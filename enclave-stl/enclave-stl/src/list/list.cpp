@@ -3,12 +3,14 @@
 
 namespace enclave_stl
 {
+	// initialize list with dynamic size
 	template <typename Type>
 	list<Type>::list()
 	{
 		elements = new Type[_size];
 	}
 
+	// initialize list with initial capacity
 	template <typename Type>
 	list<Type>::list(unsigned long initial_capacity)
 	{
@@ -32,6 +34,7 @@ namespace enclave_stl
 		}
 	}
 
+
 	template <typename Type>
 	size_t  list<Type>::size()
 	{
@@ -52,7 +55,7 @@ namespace enclave_stl
 	}
 
 	template <typename Type>
-	auto& list<Type>::operator+(const list<Type>& index)
+	void list<Type>::operator+(const list<Type>& list)
 	{
 		return 1 + 1; // test
 	}
