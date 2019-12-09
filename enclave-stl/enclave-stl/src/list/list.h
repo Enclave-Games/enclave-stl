@@ -8,14 +8,14 @@ namespace enclave_stl
 	{
 	public:
 		list();
-		unsigned int size();
+		size_t  size();
 		bool empty();
 		void add(const Type& _element);
 
 
 		Type& operator[](const size_t index);
 	private:
-		unsigned int _size;
+		size_t  _size;
 		Type* elements;
 	};
 }

@@ -18,7 +18,7 @@ namespace enclave_stl
 	}
 
 	template <typename Type>
-	unsigned int list<Type>::size()
+	size_t  list<Type>::size()
 	{
 		return this->_size;
 	}
