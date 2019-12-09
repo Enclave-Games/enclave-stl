@@ -17,6 +17,8 @@ namespace enclave_stl
 		elements = new Type[initial_capacity];
 	}
 
+
+	// added element to list
 	template <typename Type>
 	void list<Type>::add(const Type& _element) // TODO: upgrade it
 	{
@@ -47,6 +49,12 @@ namespace enclave_stl
 	Type& list<Type>::operator[](const size_t index)
 	{
 		return elements[index];
+	}
+
+	template <typename Type>
+	auto& list<Type>::operator+(const list<Type>& index)
+	{
+		return 1 + 1; // test
 	}
 
 	template <typename Type>

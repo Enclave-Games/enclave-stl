@@ -15,6 +15,7 @@ namespace enclave_stl
 
 
 		Type& operator[](const size_t index);
+		auto& list<Type>::operator+(const list<Type>& index);
 	private:
 		size_t  _size = 0;
 		unsigned long initial_capacity = 0;
