@@ -9,9 +9,13 @@ namespace enclave_stl
 	public:
 		list();
 		list(unsigned long initial_capacity);
-		size_t  size();
+		size_t size();
 		bool empty();
 		void add(const Type& _element);
+		void push_front(const Type& _element);
+		void push_back(const Type& _element);
+		void clear() const;
+		void merge(list& other);
 
 		
 		Type& operator[](const size_t index);
