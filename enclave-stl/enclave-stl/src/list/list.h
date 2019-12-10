@@ -22,7 +22,7 @@ namespace enclave_stl
 		Type& operator[](const size_t index);
 		void operator+(const list<Type>& list);
 	private:
-		size_t  _size = 0;
+		size_t _size = 0;
 		unsigned long initial_capacity = 0;
 		bool _with_initial_capacity = false;
 		Type* elements;
