@@ -26,7 +26,7 @@ namespace enclave_stl
 	{
 		if (_with_initial_capacity)
 		{
-			elements[initial_capacity++] = _element;
+			elements[initial_capacity] = _element;
 		}
 		else
 		{
@@ -34,9 +34,26 @@ namespace enclave_stl
 		}
 	}
 
+	template <typename Type>
+	void list<Type>::push_front(const Type& _element)
+	{
+		// TODO
+	}
 
 	template <typename Type>
-	size_t  list<Type>::size()
+	void list<Type>::push_back(const Type& _element)
+	{
+		// TODO
+	}
+
+	template <typename Type>
+	void list<Type>::merge(list& other)
+	{
+		// TODO
+	}
+
+	template <typename Type>
+	size_t list<Type>::size()
 	{
 		return this->_size;
 	}
