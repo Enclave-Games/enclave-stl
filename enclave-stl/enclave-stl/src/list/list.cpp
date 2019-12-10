@@ -26,12 +26,24 @@ namespace enclave_stl
 	{
 		if (_with_initial_capacity)
 		{
-			elements[initial_capacity] = _element;
+			elements[initial_capacity++] = _element;
 		}
 		else
 		{
 			elements[_size++] = _element;
 		}
+	}
+
+	template <typename Type>
+	void list<Type>::clear() const
+	{
+		
+	}
+	
+	template <typename Type>
+	void list<Type>::add(const Type& _element, size_t new_index)
+	{
+		// TODO
 	}
 
 	template <typename Type>
