@@ -12,6 +12,7 @@ namespace enclave_stl
 		size_t size();
 		bool empty();
 		void add(const Type& _element);
+		void add(const Type& _element, size_t new_index);
 		void push_front(const Type& _element);
 		void push_back(const Type& _element);
 		void clear() const;
