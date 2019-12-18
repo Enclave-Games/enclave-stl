@@ -1,5 +1,4 @@
 #include "list.h"
-#include <vector>
 
 namespace enclave_stl
 {
@@ -20,20 +19,6 @@ namespace enclave_stl
 	}
 
 
-	// added element to list
-	template <typename Type>
-	void list<Type>::add(const Type& _element) // TODO: upgrade it
-	{
-		if (_with_initial_capacity)
-		{
-			elements[initial_capacity++] = _element;
-		}
-		else
-		{
-			elements[_size++] = _element;
-		}
-	}
-
 	template <typename Type>
 	void list<Type>::clear() const
 	{
@@ -49,13 +34,44 @@ namespace enclave_stl
 	template <typename Type>
 	void list<Type>::push_front(const Type& _element)
 	{
-		// TODO
+		Type* new_list = new Type[_size + 1];
+		elements[0] = _element;
+		for (size_t i = 0; i < _size; i++)
+		{
+			new_list[i] = elements[i];
+		}
+		elements = new_list;
+		new_list = nullptr;
 	}
 
 	template <typename Type>
 	void list<Type>::push_back(const Type& _element)
 	{
-		// TODO
+		if (_with_initial_capacity)
+		{
+			Type* new_elements = new Type[initial_capacity + 1];
+
+			for (int i = 0; i < initial_capacity; i++)
+				new_elements[i] = elements[i];
+
+			delete[] elements;
+			new_elements[initial_capacity++] = _element;
+
+			elements = new_elements;
+			new_elements = nullptr;
+		}
+		else
+		{
+			Type* new_elements = new Type[_size + 1];
+
+			for (int i = 0; i < _size; i++)
+				new_elements[i] = elements[i];
+
+			delete[] elements;
+			new_elements[_size++] = _element;
+			elements = new_elements;
+			new_elements = nullptr;
+		}
 	}
 
 	template <typename Type>
@@ -81,12 +97,6 @@ namespace enclave_stl
 	Type& list<Type>::operator[](const size_t index)
 	{
 		return elements[index];
-	}
-
-	template <typename Type>
-	void list<Type>::operator+(const list<Type>& list)
-	{
-		return 1 + 1; // test
 	}
 
 	template <typename Type>
