@@ -56,21 +56,10 @@ namespace enclave_stl
 
 			delete[] elements;
 			new_elements[initial_capacity++] = _element;
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 			elements = new_elements;
 			new_elements = nullptr;
-=======
-			elements = new_elements;
-			new_elements = nullptr;
 
->>>>>>> 18526fd3828b1b6dfde89704dcbae7c65f3457d6
-=======
-			elements = new_elements;
-			new_elements = nullptr;
-
->>>>>>> 18526fd3828b1b6dfde89704dcbae7c65f3457d6
 		}
 		else
 		{
