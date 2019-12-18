@@ -124,6 +124,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\algorithms\binary_search.h" />
+    <ClInclude Include="src\iterator\iterator.h" />
     <ClInclude Include="src\list\linked_list.h" />
     <ClInclude Include="src\list\list.h" />
     <ClInclude Include="src\map\hash_map.h" />
@@ -136,6 +137,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\algorithms\binary_search.cpp" />
+    <ClCompile Include="src\iterator\iterator.cpp" />
     <ClCompile Include="src\list\linked_list.cpp" />
     <ClCompile Include="src\list\list.cpp" />
     <ClCompile Include="src\main.cpp" />
