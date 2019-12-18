@@ -22,7 +22,7 @@ namespace enclave_stl
 	template <typename Type>
 	void list<Type>::clear() const
 	{
-		
+		delete[] elements;
 	}
 	
 	template <typename Type>
