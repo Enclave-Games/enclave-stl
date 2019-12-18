@@ -47,32 +47,30 @@ namespace enclave_stl
 	template <typename Type>
 	void list<Type>::push_back(const Type& _element)
 	{
+		Type* new_elements = nullptr;
 		if (_with_initial_capacity)
 		{
-			Type* new_elements = new Type[initial_capacity + 1];
+			new_elements = new Type[initial_capacity + 1];
 
 			for (int i = 0; i < initial_capacity; i++)
 				new_elements[i] = elements[i];
 
 			delete[] elements;
 			new_elements[initial_capacity++] = _element;
-
-			elements = new_elements;
-			new_elements = nullptr;
-
 		}
 		else
 		{
-			Type* new_elements = new Type[_size + 1];
+			new_elements = new Type[_size + 1];
 
 			for (int i = 0; i < _size; i++)
 				new_elements[i] = elements[i];
 
 			delete[] elements;
 			new_elements[_size++] = _element;
-			elements = new_elements;
-			new_elements = nullptr;
+			
 		}
+		elements = new_elements;
+		new_elements = nullptr;
 	}
 
 	template <typename Type>
