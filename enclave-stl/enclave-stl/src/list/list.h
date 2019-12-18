@@ -16,6 +16,8 @@ namespace enclave_stl
 		void add(const Type& _element, size_t new_index);
 		void push_front(const Type& _element);
 		void push_back(const Type& _element);
+		void pop_back();
+		void unique();
 		void clear() const;
 		void merge(list& other);
 
