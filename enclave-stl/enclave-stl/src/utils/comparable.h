@@ -7,6 +7,7 @@ namespace enclave_stl
 	class comparable
 	{
 	public:
+		// DO NOT FORGIVE OVERRIDE IT!
 		virtual int compareTo(const Object& value) = 0;
 	};
 }
