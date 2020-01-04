@@ -33,9 +33,6 @@
     <ClCompile Include="src\list\linked_list.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="src\algorithms\binary_search.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="src\iterator\iterator.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
@@ -68,10 +65,10 @@
     <ClInclude Include="src\list\linked_list.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="src\algorithms\binary_search.h">
+    <ClInclude Include="src\iterator\iterator.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="src\iterator\iterator.h">
+    <ClInclude Include="src\utils\comparable.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

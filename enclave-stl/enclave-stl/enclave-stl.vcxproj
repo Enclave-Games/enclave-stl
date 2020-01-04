@@ -123,7 +123,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\algorithms\binary_search.h" />
     <ClInclude Include="src\iterator\iterator.h" />
     <ClInclude Include="src\list\linked_list.h" />
     <ClInclude Include="src\list\list.h" />
@@ -134,9 +133,9 @@
     <ClInclude Include="src\set\hash_set.h" />
     <ClInclude Include="src\set\multiset.h" />
     <ClInclude Include="src\set\set.h" />
+    <ClInclude Include="src\utils\comparable.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\algorithms\binary_search.cpp" />
     <ClCompile Include="src\iterator\iterator.cpp" />
     <ClCompile Include="src\list\linked_list.cpp" />
     <ClCompile Include="src\list\list.cpp" />
