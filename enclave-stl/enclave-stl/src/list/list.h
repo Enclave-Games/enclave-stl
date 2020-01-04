@@ -18,7 +18,7 @@ namespace enclave_stl
 		void push_back(const Type& _element);
 		void pop_back();
 		void unique();
-		void clear() const;
+		void clear() noexcept;
 		void merge(list& other);
 
 		

@@ -20,8 +20,10 @@ namespace enclave_stl
 
 
 	template <typename Type>
-	void list<Type>::clear() const
+	void list<Type>::clear() noexcept
 	{
+		_size = 0;
+		elements = nullptr;
 		delete[] elements;
 	}
 	
