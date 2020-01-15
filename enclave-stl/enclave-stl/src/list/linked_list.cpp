@@ -47,7 +47,7 @@ namespace enclave_stl
 	template <typename T>
 	bool linked_list<T>::is_empty()
 	{
-		return size == 0;
+		return head->next == NULL;
 	}
 
 	template <typename T>
