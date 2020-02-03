@@ -3,6 +3,9 @@
 
 #include <stdexcept>
 
+class iterator;
+class const_iterator;
+
 namespace enclave_stl
 {
 	template<typename Type>
@@ -20,6 +23,26 @@ namespace enclave_stl
 		void unique();
 		void clear() noexcept;
 		void merge(list& other);
+
+	public:
+		class iterator
+		{
+		public:
+			typedef T value_type;
+			typedef T* pointer;
+			typedef T& reference_type;
+			typedef iterator self_type;
+
+		private:
+			pointer _pointer_type;
+		};
+
+
+
+		class const_iterator
+		{
+
+		};
 
 		
 		Type& operator[](const size_t index);
