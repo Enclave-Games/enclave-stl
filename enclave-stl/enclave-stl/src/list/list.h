@@ -43,6 +43,7 @@ namespace enclave_stl
 			iterator(pointer ptr) : _pointer_type(ptr) { }
 			iterator() = default;
 			self_type operator++() { self_type i = *this; _pointer_type++; return i; }
+			self_type operator++(int junk) { _pointer_type++; return *this; }
 			bool operator==(const self_type& rhs) { return _pointer_type == rhs._pointer_type; }
 			bool operator!=(const self_type& rhs) { return _pointer_type != rhs._pointer_type; }
 			pointer operator->() { return _pointer_type; }
@@ -73,6 +74,11 @@ namespace enclave_stl
 		iterator begin() 
 		{
 			return iterator(elements);
+		}
+
+		iterator end()
+		{
+			return iterator(elements + _size);
 		}
 
 		Type& operator[](const size_t index);
