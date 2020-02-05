@@ -14,19 +14,22 @@ namespace enclave_stl
 	public:
 		list() = default;
 		list(unsigned long initial_capacity);
-		//list(list&& rhs_list);
 		size_t size() const;
 		bool empty();
 		void add(const Type& _element, size_t new_index);
 		void push_front(const Type& _element);
-		//void push_front(Type&& _element);
 		void push_back(const Type& _element);
-		//void push_back(Type&& _element);
 		void pop_back();
-		void unique();
 		void clear() noexcept;
 		void merge(const list& other);
 		~list();
+
+
+		// TODO IT!!!
+		//list(list&& rhs_list);
+		//void push_back(Type&& _element);
+		//void push_front(Type&& _element);
+
 
 
 		class iterator
