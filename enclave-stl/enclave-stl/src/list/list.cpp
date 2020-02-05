@@ -76,18 +76,6 @@ namespace enclave_stl
 	}
 
 	template <typename Type>
-	iterator list<Type>::begin()
-	{
-		return iterator(elements);
-	}
-
-	template <typename Type>
-	iterator list<Type>::end()
-	{
-		return iterator(elements + _size);
-	}
-
-	template <typename Type>
 	void list<Type>::merge(const list& other)
 	{
 		// TODO
@@ -95,7 +83,7 @@ namespace enclave_stl
 	}
 
 	template <typename Type>
-	size_t list<Type>::size()
+	size_t list<Type>::size() const
 	{
 		return this->_size;
 	}
@@ -104,6 +92,12 @@ namespace enclave_stl
 	bool list<Type>::empty()
 	{
 		return this->_size == 0;
+	}
+
+	template <typename Type>
+	list<Type>::~list()
+	{
+		delete[] elements;
 	}
 
 
