@@ -12,7 +12,7 @@ namespace enclave_stl
 	class list
 	{
 	public:
-		list();
+		list() = default;
 		list(unsigned long initial_capacity);
 		//list(list&& rhs_list);
 		size_t size() const;
@@ -28,9 +28,6 @@ namespace enclave_stl
 		void merge(const list& other);
 		~list();
 
-
-		const_iterator begin() const;
-		const_iterator end() const;
 
 		class iterator
 		{
@@ -79,6 +76,16 @@ namespace enclave_stl
 		iterator end()
 		{
 			return iterator(elements + _size);
+		}
+
+		const_iterator cbegin() const
+		{
+			return const_iterator(elements);
+		}
+
+		const_iterator cend() const
+		{
+			return const_iterator(elements + _size);
 		}
 
 		Type& operator[](const size_t index);

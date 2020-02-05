@@ -2,13 +2,6 @@
 
 namespace enclave_stl
 {
-	// initialize list with dynamic size
-	template <typename Type>
-	list<Type>::list()
-	{
-		elements = new Type[_size];
-	}
-
 	// initialize list with initial capacity
 	template <typename Type>
 	list<Type>::list(unsigned long initial_capacity)
