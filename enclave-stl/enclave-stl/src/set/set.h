@@ -1,12 +1,16 @@
 #ifndef ENCLAVE_STL_SET_H
 #define ENCLAVE_STL_SET_H
 
+#include <functional>
 
-template <typename KeyType, typename ValueType>
-class set
-{
-public:
-private:
-};
+template <class Type,
+		  class Compare = std::less<Type>>
+	class set
+	{
+	public:
+
+	private:
+
+	};
 
 #endif
