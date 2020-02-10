@@ -2,14 +2,14 @@
 #define ENCLAVE_STL_LIST
 
 #include <stdexcept>
+#include "sequance_iterator.h"
 
-class iterator;
-class const_iterator;
 
 namespace enclave_stl
 {
-	template<typename Type>
-	class list
+	template<
+		typename Type>
+	class list : public sequance_iterator<Type>
 	{
 	public:
 		list() = default;
@@ -31,45 +31,8 @@ namespace enclave_stl
 		//void push_front(Type&& _element);
 
 
-
-		class iterator
-		{
-		public:
-			typedef Type value_type;
-			typedef Type* pointer;
-			typedef Type& reference_type;
-			typedef iterator self_type;
-			value_type operator*() { return *_pointer_type; }
-			iterator(pointer ptr) : _pointer_type(ptr) { }
-			iterator() = default;
-			self_type operator++() { self_type i = *this; _pointer_type++; return i; }
-			self_type operator++(int junk) { _pointer_type++; return *this; }
-			bool operator==(const self_type& rhs) { return _pointer_type == rhs._pointer_type; }
-			bool operator!=(const self_type& rhs) { return _pointer_type != rhs._pointer_type; }
-			pointer operator->() { return _pointer_type; }
-
-		private:
-			pointer _pointer_type;
-		};
-
-
-
-		class const_iterator
-		{
-		public:
-			typedef Type value_type;
-			typedef Type* pointer;
-			typedef Type& reference_type;
-			typedef iterator self_type;
-
-			const_iterator(pointer ptr) : _pointer_type(ptr) { }
-			bool operator==(const self_type rhs) { return _pointer_type == rhs._pointer_type; }
-			bool operator!=(const self_type rhs) { return _pointer_type != rhs._pointer_type; }
-			const pointer operator->() { return _pointer_type; }
-			const reference_type operator*() { return *pointer; }
-		private:
-			pointer _pointer_type;
-		};
+		using iterator = sequance_iterator<Type>;
+		using const_iterator = const sequance_iterator<Type>;   //poorly designed, do not use it!!!
 
 		iterator begin() 
 		{
