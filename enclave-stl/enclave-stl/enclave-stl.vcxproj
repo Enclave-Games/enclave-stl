@@ -87,6 +87,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>D:\Enclave\enclave-stl\enclave-stl\enclave-stl\src\iterators;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -115,6 +116,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>D:\Enclave\enclave-stl\enclave-stl\enclave-stl\src\iterators;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -123,6 +125,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\iterators\associative_iterator.h" />
     <ClInclude Include="src\iterators\sequance_iterator.h" />
     <ClInclude Include="src\list\linked_list.h" />
     <ClInclude Include="src\list\list.h" />
@@ -137,7 +140,6 @@
     <ClInclude Include="src\utils\comparable.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\iterators\sequance_iterator.cpp" />
     <ClCompile Include="src\list\linked_list.cpp" />
     <ClCompile Include="src\list\list.cpp" />
     <ClCompile Include="src\main.cpp" />
