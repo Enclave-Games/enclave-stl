@@ -132,11 +132,16 @@
     <ClInclude Include="src\map\hash_map.h" />
     <ClInclude Include="src\map\map.h" />
     <ClInclude Include="src\map\multimap.h" />
+    <ClInclude Include="src\queue\priority_queue.h" />
+    <ClInclude Include="src\queue\queue.h" />
     <ClInclude Include="src\set\hash_multiset.h" />
     <ClInclude Include="src\set\hash_set.h" />
     <ClInclude Include="src\set\multiset.h" />
     <ClInclude Include="src\set\set.h" />
+    <ClInclude Include="src\tree\binary_search_tree.h" />
     <ClInclude Include="src\tree\binary_tree.h" />
+    <ClInclude Include="src\tree\expression_tree.h" />
+    <ClInclude Include="src\tree\general_tree.h" />
     <ClInclude Include="src\utils\comparable.h" />
   </ItemGroup>
   <ItemGroup>
@@ -146,7 +151,12 @@
     <ClCompile Include="src\map\hash_map.c" />
     <ClCompile Include="src\map\map.c" />
     <ClCompile Include="src\map\multimap.c" />
+    <ClCompile Include="src\queue\priority_queue.cpp" />
+    <ClCompile Include="src\queue\queue.cpp" />
+    <ClCompile Include="src\tree\binary_search_tree.cpp" />
     <ClCompile Include="src\tree\binary_tree.cpp" />
+    <ClCompile Include="src\tree\expression_tree.cpp" />
+    <ClCompile Include="src\tree\general_tree.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
