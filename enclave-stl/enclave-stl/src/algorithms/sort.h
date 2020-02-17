@@ -4,7 +4,7 @@
 
 namespace enclave_stl
 {
-	template <typename Iter, typename Iter>
+	template <typename Iter>
 	void sort(Iter first, Iter second);
 
 	constexpr void sort();
