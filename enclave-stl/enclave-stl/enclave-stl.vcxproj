@@ -125,6 +125,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\algorithms\sort.h" />
     <ClInclude Include="src\iterators\associative_iterator.h" />
     <ClInclude Include="src\iterators\sequance_iterator.h" />
     <ClInclude Include="src\list\linked_list.h" />
@@ -145,6 +146,7 @@
     <ClInclude Include="src\utils\comparable.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\algorithms\sort.cpp" />
     <ClCompile Include="src\list\linked_list.cpp" />
     <ClCompile Include="src\list\list.cpp" />
     <ClCompile Include="src\main.cpp" />
