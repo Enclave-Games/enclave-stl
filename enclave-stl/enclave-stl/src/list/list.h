@@ -4,7 +4,6 @@
 #include <stdexcept>
 #include "sequance_iterator.h"
 
-
 namespace enclave_stl
 {
 	template<
@@ -13,7 +12,8 @@ namespace enclave_stl
 	{
 	public:
 		list() = default;
-		list(unsigned long initial_capacity);
+		list(size_t initial_capacity);
+		list(const std::initializer_list<Type> &init_list);
 		size_t size() const;
 		bool empty();
 		void add(const Type& _element, size_t new_index);

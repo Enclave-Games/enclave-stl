@@ -4,13 +4,23 @@ namespace enclave_stl
 {
 	// initialize list with initial capacity
 	template <typename Type>
-	list<Type>::list(unsigned long initial_capacity)
+	list<Type>::list(size_t initial_capacity)
 	{
-		this->initial_capacity = initial_capacity;
 		this->_with_initial_capacity = true;
 		elements = new Type[initial_capacity];
 	}
 
+	template <typename Type>
+	list<Type>::list(const std::initializer_list<Type>& init_list)
+		: _size(init_list.size()), elements(new Type[init_list.size()])
+	{
+		size_t count = 0;
+		for (auto &element : init_list)
+		{
+			elements[count] = element;
+			++count;
+		}
+	}
 
 	template <typename Type>
 	void list <Type>::clear() noexcept
