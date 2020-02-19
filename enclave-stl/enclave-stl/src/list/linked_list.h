@@ -9,8 +9,14 @@ namespace enclave_stl
 	class linked_list
 	{
 	public:
+		typedef struct node
+		{
+			T data;
+			node* next;
+		};
+
 		linked_list();
-		void push(T value);
+		void push(const T& value);
 
 		void pop();
 		void remove(const T& value);
@@ -22,12 +28,6 @@ namespace enclave_stl
 		size_t length();
 
 	private:
-		typedef struct node
-		{
-			T data;
-			node* next;
-		};
-
 		node* head;
 		size_t size;
 	};
