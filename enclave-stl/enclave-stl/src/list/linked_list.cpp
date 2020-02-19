@@ -10,7 +10,7 @@ namespace enclave_stl
 	}
 
 	template <typename T>
-	void linked_list<T>::push(T value)
+	void linked_list<T>::push(const T& value)
 	{
 		node* temp_node = new node;
 		temp_node->next = nullptr;
