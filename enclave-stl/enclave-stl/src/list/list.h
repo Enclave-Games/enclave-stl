@@ -13,7 +13,7 @@ namespace enclave_stl
 	{
 	public:
 		list() = default;
-		list(size_t initial_capacity);
+		list(uint32_t initial_capacity);
 		list(const std::initializer_list<Type> &init_list);
 		size_t size() const;
 		bool empty();
@@ -60,7 +60,7 @@ namespace enclave_stl
 
 	private:
 		size_t _size = 0;
-		unsigned long initial_capacity = 0;
+		uint32_t initial_capacity = 0;
 		bool _with_initial_capacity = false;
 		Type* elements;
 	};

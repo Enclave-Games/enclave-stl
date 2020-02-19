@@ -4,7 +4,7 @@ namespace enclave_stl
 {
 	// initialize list with initial capacity
 	template <typename Type>
-	list<Type>::list(size_t initial_capacity)
+	list<Type>::list(uint32_t initial_capacity)
 	{
 		this->_with_initial_capacity = true;
 		elements = new Type[initial_capacity];
@@ -57,7 +57,7 @@ namespace enclave_stl
 		{
 			new_elements = new Type[initial_capacity + 1];
 
-			for (int i = 0; i < initial_capacity; i++)
+			for (size_t i = 0; i < initial_capacity; i++)
 				new_elements[i] = elements[i];
 
 			delete[] elements;
@@ -67,7 +67,7 @@ namespace enclave_stl
 		{
 			new_elements = new Type[_size + 1];
 
-			for (int i = 0; i < _size; i++)
+			for (size_t i = 0; i < _size; i++)
 				new_elements[i] = elements[i];
 
 			delete[] elements;
@@ -81,13 +81,23 @@ namespace enclave_stl
 	template <typename Type>
 	void list<Type>::pop_back()
 	{
-		
+		--this->_size;
+		Type* new_elements = new Type[_size];
+
+		for (size_t i = 0; i < _size; i++)
+			new_elements[i] = elements[i];
+
+		delete[] elements;
+		elements = new_elements;
 	}
 
 	template <typename Type>
 	void list<Type>::merge(const list& other)
 	{
-		// TODO
+		Type* new_elements = other.elements;
+		for (size_t i = 0; i < _size; i++)
+			elements[i] += new_elements[i];
+
 		_size += other._size;
 	}
 
