@@ -79,6 +79,12 @@ namespace enclave_stl
 	}
 
 	template <typename Type>
+	void list<Type>::pop_back()
+	{
+		
+	}
+
+	template <typename Type>
 	void list<Type>::merge(const list& other)
 	{
 		// TODO

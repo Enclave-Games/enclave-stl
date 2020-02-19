@@ -3,6 +3,7 @@
 
 #include <stdexcept>
 #include "sequance_iterator.h"
+#include <iostream>
 
 namespace enclave_stl
 {
