@@ -91,12 +91,22 @@ namespace enclave_stl
 		elements = new_elements;
 	}
 
+
+	// TODO: do merge
 	template <typename Type>
-	void list<Type>::merge(const list& other)
+	void list<Type>::merge(list& other)
 	{
-		Type* new_elements = other.elements;
 		for (size_t i = 0; i < _size; i++)
-			elements[i] += new_elements[i];
+		{
+			for (size_t j = 0; j < other._size; j++)
+			{
+				if (this->elements[i] == other.elements[j])
+				{
+					break;
+				}
+				this->elements[i] += other.elements[j];
+			}
+		}
 
 		_size += other._size;
 	}

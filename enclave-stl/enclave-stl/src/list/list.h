@@ -22,7 +22,7 @@ namespace enclave_stl
 		void push_back(const Type& _element);
 		void pop_back();
 		void clear() noexcept;
-		void merge(const list& other);
+		void merge(list& other);
 		~list();
 
 
