@@ -1,6 +1,6 @@
 #include "linked_list.h"
 
-namespace enclave_stl
+namespace estl
 {
 	template <typename T>
 	linked_list<T>::linked_list()

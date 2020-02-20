@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-namespace enclave_stl
+namespace estl
 {
 	template <typename T>
 	class linked_list
