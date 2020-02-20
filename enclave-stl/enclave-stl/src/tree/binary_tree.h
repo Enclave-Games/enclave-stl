@@ -1,7 +1,7 @@
 #ifndef ENCLAVE_STL_BINARY_TREE
 #define ENCLAVE_STL_BINARY_TREE
 
-namespace enclave_stl
+namespace estl
 {
 	class binary_tree
 	{
