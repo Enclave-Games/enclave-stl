@@ -3,7 +3,7 @@
 
 #include <iterator>
 
-namespace enclave_stl
+namespace estl
 {
 	template<
 		typename Type,
@@ -55,9 +55,9 @@ namespace enclave_stl
 }
 
 template <class T>
-using sequance_iterator = enclave_stl::sequance_iterator<T, std::random_access_iterator_tag>;
+using sequance_iterator = estl::sequance_iterator<T, std::random_access_iterator_tag>;
 
 template <class T>
-using const_sequance_iterator = enclave_stl::const_sequance_iterator<T, std::random_access_iterator_tag>;
+using const_sequance_iterator = estl::const_sequance_iterator<T, std::random_access_iterator_tag>;
 
 #endif
