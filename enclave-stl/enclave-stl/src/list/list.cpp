@@ -1,7 +1,17 @@
 #include "list.h"
 
-namespace enclave_stl
+namespace estl
 {
+	template <typename Type>
+	list<Type>::list()
+		: _size(0),
+		elements(nullptr),
+		initial_capacity(0),
+		_with_initial_capacity(false)
+
+	{
+	}
+
 	// initialize list with initial capacity
 	template <typename Type>
 	list<Type>::list(uint32_t initial_capacity)
@@ -15,7 +25,7 @@ namespace enclave_stl
 		: _size(init_list.size()), elements(new Type[init_list.size()])
 	{
 		size_t count = 0;
-		for (auto &element : init_list)
+		for (auto& element : init_list)
 		{
 			elements[count] = element;
 			++count;
@@ -29,7 +39,7 @@ namespace enclave_stl
 		elements = nullptr;
 		delete[] elements;
 	}
-	
+
 	template <typename Type>
 	void list<Type>::add(const Type& _element, size_t new_index)
 	{
@@ -72,7 +82,7 @@ namespace enclave_stl
 
 			delete[] elements;
 			new_elements[_size++] = _element;
-			
+
 		}
 		elements = new_elements;
 		new_elements = nullptr;

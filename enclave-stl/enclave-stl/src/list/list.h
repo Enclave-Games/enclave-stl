@@ -5,15 +5,15 @@
 #include "sequance_iterator.h"
 #include <iostream>
 
-namespace enclave_stl
+namespace estl
 {
 	template<
 		typename Type>
 	class list : public sequance_iterator<Type>
 	{
 	public:
-		list() = default;
-		list(uint32_t initial_capacity);
+		list();
+		explicit list(uint32_t initial_capacity);
 		list(const std::initializer_list<Type> &init_list);
 		size_t size() const;
 		bool empty();
@@ -59,9 +59,9 @@ namespace enclave_stl
 		void operator=(const list<Type>& list);
 
 	private:
-		size_t _size = 0;
-		uint32_t initial_capacity = 0;
-		bool _with_initial_capacity = false;
+		size_t _size;
+		uint32_t initial_capacity;
+		bool _with_initial_capacity;
 		Type* elements;
 	};
 }
