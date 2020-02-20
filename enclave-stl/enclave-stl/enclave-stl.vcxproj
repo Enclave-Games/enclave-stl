@@ -149,9 +149,9 @@
     <ClCompile Include="src\list\linked_list.cpp" />
     <ClCompile Include="src\list\list.cpp" />
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\map\hash_map.c" />
-    <ClCompile Include="src\map\map.c" />
-    <ClCompile Include="src\map\multimap.c" />
+    <ClCompile Include="src\map\hash_map.cpp" />
+    <ClCompile Include="src\map\map.cpp" />
+    <ClCompile Include="src\map\multimap.cpp" />
     <ClCompile Include="src\queue\priority_queue.cpp" />
     <ClCompile Include="src\queue\queue.cpp" />
     <ClCompile Include="src\tree\binary_search_tree.cpp" />
