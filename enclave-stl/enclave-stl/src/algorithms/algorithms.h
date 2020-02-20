@@ -2,50 +2,67 @@
 #define ENCLAVE_STL_ALGORITHMS
 
 #include <vector>
+#include "sequance_iterator.h"
 
-namespace enclave_stl
+namespace ealg
 {
-	namespace algorithms
+	template <typename RandomAccessIter>
+	void sort(RandomAccessIter start, RandomAccessIter end)
 	{
-		template <typename RandomIter>
-		void sort(RandomIter first, RandomIter second)
+		if (start != end)
 		{
-
-		}
-
-
-		void selection_sort()
-		{
-
-		}
-
-	
-		void qsort(int* a, int start, int end)
-		{
-			if (start < end)
+			for (RandomAccessIter it = start; it != end; it++)
 			{
-				int pivot = a[end];
-				int P_index = start;
-				int i, t; //t is temporary variable
 
-
-				for (i = start; i < end; i++)
-				{
-					if (a[i] <= pivot)
-					{
-						t = a[i];
-						a[i] = a[P_index];
-						a[P_index] = t;
-						P_index++;
-					}
-				}
-				t = a[end];
-				a[end] = a[P_index];
-				a[P_index] = t;
-
-				qsort(a, start, P_index - 1);
-				qsort(a, P_index + 1, end);
 			}
+		}
+	}
+
+	template <typename ForwardIter>
+	ForwardIter max(ForwardIter begin, ForwardIter end)
+	{
+		if (begin != end)
+		{
+			ForwardIter currentMax = begin;
+
+			while (++begin != end)
+			{
+				if (*currentMax < *begin)
+				{
+					currentMax = begin;
+				}
+				return currentMax;
+			}
+		}
+		return begin;
+	}
+
+
+	void qsort(int* a, int start, int end)
+	{
+		if (start < end)
+		{
+			uint16_t pivot = a[end];
+			uint16_t P_index = start;
+			size_t i, temp;
+
+
+			for (i = start; i < end; i++)
+			{
+				if (a[i] <= pivot)
+				{
+					temp = a[i];
+					a[i] = a[P_index];
+					a[P_index] = temp;
+					P_index++;
+				}
+			}
+			temp = a[end];
+			a[end] = a[P_index];
+			a[P_index] = temp;
+
+			qsort(a, start, P_index - 1);
+			qsort(a, P_index + 1, end);
 		}
 	}
 }
