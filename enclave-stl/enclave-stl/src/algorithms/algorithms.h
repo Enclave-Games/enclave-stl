@@ -46,7 +46,7 @@ namespace ealg
 
 			while (++begin != end)
 			{
-				if (compare(*currentMax, *begin))
+				if (compare(*currentMax, *begin)
 				{
 					currentMax = begin;
 				}
