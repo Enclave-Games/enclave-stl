@@ -37,6 +37,24 @@ namespace ealg
 		return begin;
 	}
 
+	template <typename ForwardIter, typename Compare>
+	ForwardIter max(ForwardIter begin, ForwardIter end, Compare compare)
+	{
+		if (begin != end)
+		{
+			ForwardIter currentMax = begin;
+
+			while (++begin != end)
+			{
+				if (compare(*currentMax, *begin))
+				{
+					currentMax = begin;
+				}
+				return currentMax;
+			}
+		}
+		return begin;
+	}
 
 	void qsort(int* a, int start, int end)
 	{
