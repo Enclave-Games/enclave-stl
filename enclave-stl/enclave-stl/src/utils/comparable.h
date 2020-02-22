@@ -1,7 +1,7 @@
 #ifndef ENCLAVE_STL_COMPARABLE
 #define ENCLAVE_STL_COMPARABLE
 
-namespace enclave_stl
+namespace estl
 {
 	template<typename Object>
 	class comparable
