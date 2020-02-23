@@ -91,7 +91,7 @@ namespace estl
 	template <typename ArrayType>
 	void list<ArrayType>::array_copy(ArrayType* this_array, 
 									 ArrayType* new_elements, 
-									 size_t size)
+									 size_t size) noexcept
 	{
 
 	}

@@ -23,7 +23,7 @@ namespace estl
 		void remove(size_t element);
 		void array_copy(ArrayType* this_array,
 						ArrayType* new_element,
-						size_t this_size);
+						size_t this_size) noexcept;
 
 		void pop_back();
 		void clear() noexcept;
