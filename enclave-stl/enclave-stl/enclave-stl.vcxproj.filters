@@ -51,6 +51,9 @@
     <ClCompile Include="src\map\multimap.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="src\algorithms\binary_search.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\list\list.h">
@@ -108,6 +111,9 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="src\algorithms\algorithms.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="src\algorithms\binary_search.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
