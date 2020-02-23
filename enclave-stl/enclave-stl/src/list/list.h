@@ -22,7 +22,6 @@ namespace estl
 		void push_back(const ArrayType& _element);
 		void remove(size_t element);
 		void array_copy(ArrayType* this_array,
-						ArrayType* new_element,
 						size_t this_size) noexcept;
 
 		void pop_back();

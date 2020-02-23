@@ -12,7 +12,8 @@ namespace estl
 	{
 	}
 
-	// initialize list with initial capacity
+	// Initialize list with initial capacity
+	// Parameter: initial_capacity - initial size of the current array
 	template <typename ArrayType>
 	list<ArrayType>::list(uint32_t initial_capacity)
 	{
@@ -46,24 +47,21 @@ namespace estl
 		// TODO
 	}
 
+
+	// Inserts an element at the beginning of the current array
+	// Parameter: _element - some element
 	template <typename ArrayType>
 	void list<ArrayType>::push_front(const ArrayType& _element)
 	{
-		ArrayType* new_list = new ArrayType[_size + 1];
-		for (size_t i = 0; i < _size; i++)
-		{
-			new_list[i] = elements[i];
-		}
+		array_copy(this->elements, --(this->_size));
 		elements[0] = _element;
-		elements = new_list;
-		new_list = nullptr;
 	}
 
 	template <typename ArrayType>
 	void list<ArrayType>::push_back(const ArrayType& _element)
 	{
-		ArrayType* new_elements = nullptr;
-		if (_with_initial_capacity)
+		ArrayType* new_elements;
+		/*if (_with_initial_capacity)
 		{
 			new_elements = new ArrayType[initial_capacity + 1];
 
@@ -72,28 +70,30 @@ namespace estl
 
 			delete[] elements;
 			new_elements[initial_capacity++] = _element;
-		}
-		else
-		{
-			new_elements = new ArrayType[_size + 1];
+		}*/
+		new_elements = new ArrayType[_size + 1];
 
-			for (size_t i = 0; i < _size; i++)
-				new_elements[i] = elements[i];
+		for (size_t i = 0; i < _size; i++)
+			new_elements[i] = elements[i];
 
-			delete[] elements;
-			new_elements[_size++] = _element;
+		delete[] elements;
+		new_elements[_size++] = _element;
 
-		}
 		elements = new_elements;
 		new_elements = nullptr;
 	}
 
 	template <typename ArrayType>
-	void list<ArrayType>::array_copy(ArrayType* this_array, 
-									 ArrayType* new_elements, 
-									 size_t size) noexcept
+	void list<ArrayType>::array_copy(ArrayType* this_array,
+		size_t size) noexcept
 	{
-
+		ArrayType* new_list = new ArrayType[size];
+		for (size_t i = 0; i < size; i++)
+		{
+			new_list[i] = elements[i];
+		}
+		this->elements = new_list;
+		new_list = nullptr;
 	}
 
 	template <typename ArrayType>
@@ -109,20 +109,13 @@ namespace estl
 
 		//delete old_index;
 	}
-	
 
+
+	// Deletes the last an element from the current array
 	template <typename ArrayType>
 	void list<ArrayType>::pop_back()
 	{
-		--this->_size;
-		ArrayType* new_elements = new ArrayType[_size];
-
-		for (size_t i = 0; i < _size; i++)
-			new_elements[i] = elements[i];
-
-		delete[] elements;
-		elements = new_elements;
-		new_elements = nullptr;
+		array_copy(this->elements, --(this->_size));
 	}
 
 
