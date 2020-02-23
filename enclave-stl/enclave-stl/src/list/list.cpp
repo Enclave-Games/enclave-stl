@@ -81,7 +81,7 @@ namespace estl
 		ArrayType* new_list = new ArrayType[size];
 		for (size_t i = 0; i < size; i++)
 		{
-			new_list[i] = elements[i];
+			new_list[i] = this_array[i];
 		}
 		this->elements = new_list;
 		new_list = nullptr;
