@@ -2,8 +2,8 @@
 
 namespace estl
 {
-	template <typename Type>
-	list<Type>::list()
+	template <typename ArrayType>
+	list<ArrayType>::list()
 		: _size(0),
 		elements(nullptr),
 		initial_capacity(0),
@@ -13,16 +13,16 @@ namespace estl
 	}
 
 	// initialize list with initial capacity
-	template <typename Type>
-	list<Type>::list(uint32_t initial_capacity)
+	template <typename ArrayType>
+	list<ArrayType>::list(uint32_t initial_capacity)
 	{
 		this->_with_initial_capacity = true;
-		elements = new Type[initial_capacity];
+		elements = new ArrayType[initial_capacity];
 	}
 
-	template <typename Type>
-	list<Type>::list(const std::initializer_list<Type>& init_list)
-		: _size(init_list.size()), elements(new Type[init_list.size()])
+	template <typename ArrayType>
+	list<ArrayType>::list(const std::initializer_list<ArrayType>& init_list)
+		: _size(init_list.size()), elements(new ArrayType[init_list.size()])
 	{
 		size_t count = 0;
 		for (auto& element : init_list)
@@ -32,40 +32,40 @@ namespace estl
 		}
 	}
 
-	template <typename Type>
-	void list <Type>::clear() noexcept
+	template <typename ArrayType>
+	void list <ArrayType>::clear() noexcept
 	{
 		_size = 0;
 		elements = nullptr;
 		delete[] elements;
 	}
 
-	template <typename Type>
-	void list<Type>::add(const Type& _element, size_t new_index)
+	template <typename ArrayType>
+	void list<ArrayType>::add(const ArrayType& _element, size_t new_index)
 	{
 		// TODO
 	}
 
-	template <typename Type>
-	void list<Type>::push_front(const Type& _element)
+	template <typename ArrayType>
+	void list<ArrayType>::push_front(const ArrayType& _element)
 	{
-		Type* new_list = new Type[_size + 1];
-		elements[0] = _element;
+		ArrayType* new_list = new ArrayType[_size + 1];
 		for (size_t i = 0; i < _size; i++)
 		{
 			new_list[i] = elements[i];
 		}
+		elements[0] = _element;
 		elements = new_list;
 		new_list = nullptr;
 	}
 
-	template <typename Type>
-	void list<Type>::push_back(const Type& _element)
+	template <typename ArrayType>
+	void list<ArrayType>::push_back(const ArrayType& _element)
 	{
-		Type* new_elements = nullptr;
+		ArrayType* new_elements = nullptr;
 		if (_with_initial_capacity)
 		{
-			new_elements = new Type[initial_capacity + 1];
+			new_elements = new ArrayType[initial_capacity + 1];
 
 			for (size_t i = 0; i < initial_capacity; i++)
 				new_elements[i] = elements[i];
@@ -75,7 +75,7 @@ namespace estl
 		}
 		else
 		{
-			new_elements = new Type[_size + 1];
+			new_elements = new ArrayType[_size + 1];
 
 			for (size_t i = 0; i < _size; i++)
 				new_elements[i] = elements[i];
@@ -88,23 +88,47 @@ namespace estl
 		new_elements = nullptr;
 	}
 
-	template <typename Type>
-	void list<Type>::pop_back()
+	template <typename ArrayType>
+	void list<ArrayType>::array_copy(ArrayType* this_array, 
+									 ArrayType* new_elements, 
+									 size_t size)
+	{
+
+	}
+
+	template <typename ArrayType>
+	void list<ArrayType>::remove(size_t index)
+	{
+		if (index >= _size)
+		{
+			throw std::out_of_range("Out of range");
+		}
+
+		size_t old_index = static_cast<size_t>(elements[index]);
+		array_copy(elements, _size);
+
+		//delete old_index;
+	}
+	
+
+	template <typename ArrayType>
+	void list<ArrayType>::pop_back()
 	{
 		--this->_size;
-		Type* new_elements = new Type[_size];
+		ArrayType* new_elements = new ArrayType[_size];
 
 		for (size_t i = 0; i < _size; i++)
 			new_elements[i] = elements[i];
 
 		delete[] elements;
 		elements = new_elements;
+		new_elements = nullptr;
 	}
 
 
 	// TODO: do merge
-	template <typename Type>
-	void list<Type>::merge(list& other)
+	template <typename ArrayType>
+	void list<ArrayType>::merge(list& other)
 	{
 		for (size_t i = 0; i < _size; i++)
 		{
@@ -121,39 +145,39 @@ namespace estl
 		_size += other._size;
 	}
 
-	template <typename Type>
-	size_t list<Type>::size() const
+	template <typename ArrayType>
+	size_t list<ArrayType>::size() const
 	{
 		return this->_size;
 	}
 
-	template <typename Type>
-	bool list<Type>::empty()
+	template <typename ArrayType>
+	bool list<ArrayType>::empty()
 	{
 		return this->_size == 0;
 	}
 
-	template <typename Type>
-	list<Type>::~list()
+	template <typename ArrayType>
+	list<ArrayType>::~list()
 	{
 		delete[] elements;
 	}
 
 
-	template <typename Type>
-	Type& list<Type>::operator[](const size_t index)
+	template <typename ArrayType>
+	ArrayType& list<ArrayType>::operator[](const size_t index)
 	{
 		return elements[index];
 	}
 
-	template <typename Type>
-	bool& operator<(list<Type>& other1, list<Type>& other2)
+	template <typename ArrayType>
+	bool& operator<(list<ArrayType>& other1, list<ArrayType>& other2)
 	{
 		return other1.size() < other2.size();
 	}
 
-	template <typename Type>
-	bool operator==(list<Type>& other1, list<Type>& other2)
+	template <typename ArrayType>
+	bool operator==(list<ArrayType>& other1, list<ArrayType>& other2)
 	{
 		return other1.size() == other2.size();
 	}
