@@ -2,6 +2,7 @@
 #define ENCLAVE_STL_ALGORITHMS
 
 #include <vector>
+#include <algorithm>
 #include "sequance_iterator.h"
 
 namespace ealg
@@ -11,9 +12,11 @@ namespace ealg
 	{
 		if (start != end)
 		{
+			RandomAccessIter* current_data_array = nullptr;
+
 			for (RandomAccessIter it = start; it != end; it++)
 			{
-
+				
 			}
 		}
 	}
