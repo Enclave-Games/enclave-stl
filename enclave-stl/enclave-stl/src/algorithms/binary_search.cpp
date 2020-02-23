@@ -1,9 +1,6 @@
 #include "binary_search.h"
 
-namespace enclave_stl
+namespace ealg
 {
-	namespace algorithms
-	{
-		
-	}
+
 }
