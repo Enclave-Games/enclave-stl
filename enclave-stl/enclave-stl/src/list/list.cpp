@@ -61,16 +61,7 @@ namespace estl
 	void list<ArrayType>::push_back(const ArrayType& _element)
 	{
 		ArrayType* new_elements;
-		/*if (_with_initial_capacity)
-		{
-			new_elements = new ArrayType[initial_capacity + 1];
-
-			for (size_t i = 0; i < initial_capacity; i++)
-				new_elements[i] = elements[i];
-
-			delete[] elements;
-			new_elements[initial_capacity++] = _element;
-		}*/
+		
 		new_elements = new ArrayType[_size + 1];
 
 		for (size_t i = 0; i < _size; i++)
