@@ -12,6 +12,7 @@ namespace estl
 	{
 	}
 
+
 	// Initialize list with initial capacity
 	// Parameter: initial_capacity - initial size of the current array
 	template <typename ArrayType>
