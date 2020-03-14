@@ -86,6 +86,54 @@ namespace ealg
 			qsort(a, P_index + 1, end);
 		}
 	}
+
+	template<class T>
+	const T& max(const T& a, const T& b)
+	{
+		return (b < a) ? a : b;
+	}
+
+	template<class T, class Compare>
+	const T& max(const T& a, const T& b, Compare compare)
+	{
+		return (compare(b < a)) ? a : b;
+	}
+
+	template<class T>
+	const T& max(const std::initializer_list<T> init_list)
+	{
+		return *std::max_element(init_list.begin(), init_list.end());
+	}
+
+	template<class T, class Compare>
+	const T& max(const std::initializer_list<T> init_list, Compare compare)
+	{
+		return *std::max_element(init_list.begin(), init_list.end(), compare);
+	}
+
+	template<class T>
+	const T& min(const T& a, const T& b)
+	{
+		return (b < a) ? b : a;
+	}
+
+	template<class T, class Compare>
+	const T& min(const T& a, const T& b, Compare compare)
+	{
+		return (compare(b < a)) ? b : a;
+	}
+
+	template<class T>
+	const T& min(const std::initializer_list<T> init_list)
+	{
+		return *std::min_element(init_list.begin(), init_list.end());
+	}
+
+	template<class T, class Compare>
+	const T& min(const std::initializer_list<T> init_list, Compare compare)
+	{
+		return *std::min_element(init_list.begin(), init_list.end(), compare);
+	}
 }
 
 #endif
