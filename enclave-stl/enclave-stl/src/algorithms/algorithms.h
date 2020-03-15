@@ -173,7 +173,7 @@ namespace ealg
 				{
 					min = first;
 				}
-				else if (!(comp(*i, *max)))
+				else if (!(comp(*temp, *max)))
 				{
 					max = first;
 				}
@@ -185,6 +185,25 @@ namespace ealg
 			}
 		}
 		return { min, max };
+	}
+
+	template< class ForwardIt >
+	ForwardIt adjacent_find(ForwardIt first, ForwardIt last)
+	{
+		if (first == last)
+		{
+			return last;
+		}
+		ForwardIt next = first;
+		next++;
+		for (; next != last; ++next, ++first)
+		{
+			if (*first == *next)
+			{
+				return first;
+			}
+		}
+		return last;
 	}
 }
 
