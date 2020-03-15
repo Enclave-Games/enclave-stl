@@ -3,7 +3,7 @@
 
 namespace utils
 {
-	class container
+	class container_util
 	{
 	public:
 
