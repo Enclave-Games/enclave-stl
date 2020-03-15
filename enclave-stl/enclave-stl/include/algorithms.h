@@ -87,6 +87,48 @@ namespace ealg
 		}
 	}
 
+	template< class ForwardIt >
+	ForwardIt max_element(ForwardIt first, ForwardIt last)
+	{
+		if (first == last)
+		{
+			return last;
+		}
+
+		ForwardIt largest = first;
+
+		for (; first != last; ++first)
+		{
+			if (*largest < *first)
+			{
+				largest = first;
+			}
+		}
+
+		return largest;
+	}
+
+	template< class ForwardIt, class Compare >
+	ForwardIt max_element(ForwardIt first, ForwardIt last, Compare comp)
+	{
+		if (first == last)
+		{
+			return last;
+		}
+
+		ForwardIt largest = first;
+
+		for (; first != last; ++first)
+		{
+			if (comp(*largest, *first))
+			{
+				largest = first;
+			}
+		}
+
+		return largest;
+	}
+
 	template<class T>
 	const T& max(const T& a, const T& b)
 	{
@@ -102,13 +144,13 @@ namespace ealg
 	template<class T>
 	const T& max(const std::initializer_list<T> init_list)
 	{
-		return *std::max_element(init_list.begin(), init_list.end());
+		return *ealg::max_element(init_list.begin(), init_list.end());
 	}
 
 	template<class T, class Compare>
 	const T& max(const std::initializer_list<T> init_list, Compare compare)
 	{
-		return *std::max_element(init_list.begin(), init_list.end(), compare);
+		return *ealg::max_element(init_list.begin(), init_list.end(), compare);
 	}
 
 	template<class T>
