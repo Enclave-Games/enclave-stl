@@ -134,6 +134,58 @@ namespace ealg
 	{
 		return *std::min_element(init_list.begin(), init_list.end(), compare);
 	}
+
+	template< class ForwardIt >
+	std::pair<ForwardIt, ForwardIt>
+		minmax_element(ForwardIt first, ForwardIt last)
+	{
+		return std::minmax_element(first, last);
+	}
+
+	template<class ForwardIt, class Compare>
+	std::pair<ForwardIt, ForwardIt>
+		minmax_element(ForwardIt first, ForwardIt last, Compare comp)
+	{
+		auto min = first;
+		auto max = first;
+
+		if ((first == last) || (++first == last)) 
+		{
+			return { min, max };
+		}
+
+		if (comp(*first, *last))
+		{
+			min = first;
+		}
+		else
+		{
+			max = first;
+		}
+
+		while (++first != last)
+		{
+			ForwardIt temp = first;
+
+			if (++first == last) 
+			{
+				if (comp(*first, *min))
+				{
+					min = first;
+				}
+				else if (!(comp(*i, *max)))
+				{
+					max = first;
+				}
+				break;
+			}
+			else
+			{
+				
+			}
+		}
+		return { min, max };
+	}
 }
 
 #endif
