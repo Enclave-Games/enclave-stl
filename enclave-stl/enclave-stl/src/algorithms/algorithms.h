@@ -142,7 +142,7 @@ namespace ealg
 		return std::minmax_element(first, last);
 	}
 
-	template<class ForwardIt, class Compare>
+	template<class ForwardIt, class Compare >
 	std::pair<ForwardIt, ForwardIt>
 		minmax_element(ForwardIt first, ForwardIt last, Compare comp)
 	{
@@ -204,6 +204,85 @@ namespace ealg
 			}
 		}
 		return last;
+	}
+
+	template< class ForwardIt, class Compare >
+	ForwardIt adjacent_find(ForwardIt first, ForwardIt last, Compare comp)
+	{
+		if (first == last)
+		{
+			return last;
+		}
+		ForwardIt next = first;
+		next++;
+		for (; next != last; ++next, ++first)
+		{
+			if (comp(*first, *next))
+			{
+				return first;
+			}
+		}
+		return last;
+	}
+
+	template< class InputIt, class T >
+	InputIt find(InputIt first, InputIt last, const T& value)
+	{
+		for (; first != last; ++first)
+		{
+			if (*first == value)
+			{
+				return first;
+			}
+		}
+
+		return last;
+	}
+
+	template<class InputIt, class UnaryPredicate>
+	constexpr InputIt find_if_not(InputIt first, InputIt last, UnaryPredicate q)
+	{
+		for (; first != last; ++first)
+		{
+			if (!q(*first))
+			{
+				return first;
+			}
+		}
+
+		return last;
+	}
+
+	template<class InputIt, class UnaryPredicate>
+	constexpr InputIt find_if(InputIt first, InputIt last, UnaryPredicate p)
+	{
+		for (; first != last; ++first)
+		{
+			if (p(*first))
+			{
+				return first;
+			}
+		}
+
+		return last;
+	}
+
+	template< class InputIt, class UnaryPredicate >
+	bool all_of(InputIt first, InputIt last, UnaryPredicate p)
+	{
+		return ealg::find_if_not(first, last, p) == last;
+	}
+
+	template< class InputIt, class UnaryPredicate >
+	constexpr bool any_of(InputIt first, InputIt last, UnaryPredicate p)
+	{
+		return ealg::find_if(first, last, p) != last;
+	}
+
+	template< class InputIt, class UnaryPredicate >
+	constexpr bool none_of(InputIt first, InputIt last, UnaryPredicate p)
+	{
+		return ealg::find_if(first, last, p) == last;
 	}
 }
 
