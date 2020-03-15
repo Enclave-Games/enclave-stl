@@ -87,7 +87,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\Enclave\enclave-stl\enclave-stl\enclave-stl\src\iterators;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Enclave\enclave-stl\enclave-stl\enclave-stl\include;D:\Enclave\enclave-stl\enclave-stl\enclave-stl\src\iterators;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <DisableSpecificWarnings>4996</DisableSpecificWarnings>
     </ClCompile>
@@ -118,7 +118,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\Enclave\enclave-stl\enclave-stl\enclave-stl\src\iterators;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Enclave\enclave-stl\enclave-stl\enclave-stl\include;D:\Enclave\enclave-stl\enclave-stl\enclave-stl\src\iterators;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <DisableSpecificWarnings>4996</DisableSpecificWarnings>
     </ClCompile>
@@ -129,41 +129,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\algorithms\algorithms.h" />
-    <ClInclude Include="src\algorithms\binary_search.h" />
-    <ClInclude Include="src\iterators\associative_iterator.h" />
-    <ClInclude Include="src\iterators\sequance_iterator.h" />
-    <ClInclude Include="src\list\linked_list.h" />
-    <ClInclude Include="src\list\list.h" />
-    <ClInclude Include="src\map\hash_map.h" />
-    <ClInclude Include="src\map\map.h" />
-    <ClInclude Include="src\map\multimap.h" />
-    <ClInclude Include="src\queue\priority_queue.h" />
-    <ClInclude Include="src\queue\queue.h" />
-    <ClInclude Include="src\set\hash_multiset.h" />
-    <ClInclude Include="src\set\hash_set.h" />
-    <ClInclude Include="src\set\multiset.h" />
-    <ClInclude Include="src\set\set.h" />
-    <ClInclude Include="src\tree\binary_search_tree.h" />
-    <ClInclude Include="src\tree\binary_tree.h" />
-    <ClInclude Include="src\tree\expression_tree.h" />
-    <ClInclude Include="src\tree\general_tree.h" />
-    <ClInclude Include="src\utils\comparable.h" />
+    <ClInclude Include="include\algorithms.h" />
+    <ClInclude Include="include\associative_iterator.h" />
+    <ClInclude Include="include\sequance_iterator.h" />
+    <ClInclude Include="include\linked_list.h" />
+    <ClInclude Include="include\list.h" />
+    <ClInclude Include="include\hash_map.h" />
+    <ClInclude Include="include\map.h" />
+    <ClInclude Include="include\multimap.h" />
+    <ClInclude Include="include\priority_queue.h" />
+    <ClInclude Include="include\queue.h" />
+    <ClInclude Include="include\hash_multiset.h" />
+    <ClInclude Include="include\hash_set.h" />
+    <ClInclude Include="include\multiset.h" />
+    <ClInclude Include="include\set.h" />
+    <ClInclude Include="include\binary_search_tree.h" />
+    <ClInclude Include="include\binary_tree.h" />
+    <ClInclude Include="include\expression_tree.h" />
+    <ClInclude Include="include\general_tree.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\algorithms\binary_search.cpp" />
-    <ClCompile Include="src\list\linked_list.cpp" />
-    <ClCompile Include="src\list\list.cpp" />
-    <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\map\hash_map.cpp" />
-    <ClCompile Include="src\map\map.cpp" />
-    <ClCompile Include="src\map\multimap.cpp" />
-    <ClCompile Include="src\queue\priority_queue.cpp" />
-    <ClCompile Include="src\queue\queue.cpp" />
-    <ClCompile Include="src\tree\binary_search_tree.cpp" />
-    <ClCompile Include="src\tree\binary_tree.cpp" />
-    <ClCompile Include="src\tree\expression_tree.cpp" />
-    <ClCompile Include="src\tree\general_tree.cpp" />
+    <ClCompile Include="test\TestList.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
