@@ -129,6 +129,48 @@ namespace ealg
 		return largest;
 	}
 
+	template< class ForwardIt >
+	ForwardIt min_element(ForwardIt first, ForwardIt last)
+	{
+		if (first == last)
+		{
+			return last;
+		}
+
+		ForwardIt smallest = first;
+
+		for (; first != last; ++first)
+		{
+			if (*smallest > *first)
+			{
+				smallest = first;
+			}
+		}
+
+		return smallest;
+	}
+
+	template< class ForwardIt, class Compare >
+	ForwardIt min_element(ForwardIt first, ForwardIt last, Compare compare)
+	{
+		if (first == last)
+		{
+			return last;
+		}
+
+		ForwardIt smallest = first;
+
+		for (; first != last; ++first)
+		{
+			if (*smallest < *first)
+			{
+				smallest = first;
+			}
+		}
+
+		return smallest;
+	}
+
 	template<class T>
 	const T& max(const T& a, const T& b)
 	{
