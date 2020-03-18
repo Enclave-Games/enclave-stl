@@ -2,21 +2,33 @@
 #define ENCLAVE_STL_ALGORITHMS
 
 #include <vector>
-#include <algorithm>
+#include <exception>
 #include "sequance_iterator.h"
 
 // TODO LIST!!!
 // sort
+// sort<Compare>     
+// sort_heap         
+// sort_heap<Compare>
+
 // count
 // count_if
 // equal
 // equal<Compare>
 // copy_if
+// copy_backward
+// equal
+// equal<Compare>
+// equal_range
+// equal_range<Compare>
 // move
 // binary_search
 // binary_search<Compare>
 // binary_search_i
 // binary_search_i<Compare>
+// distance
+// change_heap
+// change_heap<Compare>
 
 namespace ealg
 {
@@ -25,7 +37,7 @@ namespace ealg
 	{
 		if (start == end)
 		{
-			return;
+			throw std::exception("Fail sort!");
 		}
 
 		if (start != end)
@@ -76,34 +88,6 @@ namespace ealg
 			}
 		}
 		return begin;
-	}
-
-	void qsort(int* a, int start, int end)
-	{
-		if (start < end)
-		{
-			uint16_t pivot = a[end];
-			uint16_t P_index = start;
-			size_t i, temp;
-
-
-			for (i = start; i < end; i++)
-			{
-				if (a[i] <= pivot)
-				{
-					temp = a[i];
-					a[i] = a[P_index];
-					a[P_index] = temp;
-					P_index++;
-				}
-			}
-			temp = a[end];
-			a[end] = a[P_index];
-			a[P_index] = temp;
-
-			qsort(a, start, P_index - 1);
-			qsort(a, P_index + 1, end);
-		}
 	}
 
 	template< class ForwardIt >
