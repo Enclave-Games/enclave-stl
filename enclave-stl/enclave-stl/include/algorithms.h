@@ -29,6 +29,9 @@
 // distance
 // change_heap
 // change_heap<Compare>
+// random_shuffle
+// rand
+// shuffle
 
 namespace ealg
 {
@@ -387,6 +390,23 @@ namespace ealg
 		static_assert(!is_lvalue_reference<T>::value,
 			"can not forward an rvalue as an lvalue");
 		return static_cast<T&&>(t);
+	}
+
+	template< class RandomIt >
+	void random_shuffle(RandomIt first, RandomIt last)
+	{
+
+	}
+	template< class RandomIt, class RandomFunc >
+	void random_shuffle(RandomIt first, RandomIt last, RandomFunc& r)
+	{
+
+	}
+
+	template< class RandomIt, class URBG >
+	void shuffle(RandomIt first, RandomIt last, URBG&& g)
+	{
+
 	}
 }
 
