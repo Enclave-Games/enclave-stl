@@ -5,14 +5,33 @@
 #include <algorithm>
 #include "sequance_iterator.h"
 
+// TODO LIST!!!
+// sort
+// count
+// count_if
+// equal
+// equal<Compare>
+// copy_if
+// move
+// binary_search
+// binary_search<Compare>
+// binary_search_i
+// binary_search_i<Compare>
+
 namespace ealg
 {
 	template <typename RandomAccessIter>
 	void sort(RandomAccessIter start, RandomAccessIter end)
 	{
+		if (start == end)
+		{
+			return;
+		}
+
 		if (start != end)
 		{
-			RandomAccessIter* current_data_array = nullptr;
+			RandomAccessIter pivot = end;
+			RandomAccessIter p_index = start;
 
 			for (RandomAccessIter it = start; it != end; it++)
 			{
@@ -370,12 +389,12 @@ namespace ealg
 	}
 
 	template< class InputIt, class OutputIt >
-	OutputIt copy(InputIt first, InputIt last, OutputIt d_first)
+	OutputIt copy(InputIt first, InputIt last, OutputIt start_dest_range)
 	{
 		while (first != last) {
-			*d_first++ = *first++;
+			*start_dest_range++ = *first++;
 		}
-		return d_first;
+		return start_dest_range;
 	}
 
 	template< class T >
