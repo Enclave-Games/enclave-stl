@@ -132,6 +132,7 @@
     <ClInclude Include="include\algorithms.h" />
     <ClInclude Include="include\associative_iterator.h" />
     <ClInclude Include="include\base\config.h" />
+    <ClInclude Include="include\base\red_black_tree.h" />
     <ClInclude Include="include\sequance_iterator.h" />
     <ClInclude Include="include\linked_list.h" />
     <ClInclude Include="include\list.h" />
