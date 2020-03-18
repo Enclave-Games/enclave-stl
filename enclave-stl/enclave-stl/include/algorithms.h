@@ -210,13 +210,13 @@ namespace ealg
 	template<class T>
 	const T& min(const std::initializer_list<T> init_list)
 	{
-		return *std::min_element(init_list.begin(), init_list.end());
+		return *ealg::min_element(init_list.begin(), init_list.end());
 	}
 
 	template<class T, class Compare>
 	const T& min(const std::initializer_list<T> init_list, Compare compare)
 	{
-		return *std::min_element(init_list.begin(), init_list.end(), compare);
+		return *ealg::min_element(init_list.begin(), init_list.end(), compare);
 	}
 
 	template< class ForwardIt >
@@ -233,7 +233,7 @@ namespace ealg
 		auto min = first;
 		auto max = first;
 
-		if ((first == last) || (++first == last)) 
+		if ((first == last) || (++first == last))
 		{
 			return { min, max };
 		}
