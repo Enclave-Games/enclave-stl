@@ -12,10 +12,6 @@
 // sort_heap         
 // sort_heap<Compare>
 
-// count
-// count_if
-// equal
-// equal<Compare>
 // copy_if
 // copy_backward
 // equal
@@ -331,7 +327,7 @@ namespace ealg
 	}
 
 	template<class InputIt, class UnaryPredicate>
-	constexpr InputIt find_if_not(InputIt first, InputIt last, UnaryPredicate q)
+	ENCLAVE_CONSTEXPR InputIt find_if_not(InputIt first, InputIt last, UnaryPredicate q)
 	{
 		for (; first != last; ++first)
 		{
@@ -345,7 +341,7 @@ namespace ealg
 	}
 
 	template<class InputIt, class UnaryPredicate>
-	constexpr InputIt find_if(InputIt first, InputIt last, UnaryPredicate p)
+	ENCLAVE_CONSTEXPR InputIt find_if(InputIt first, InputIt last, UnaryPredicate p)
 	{
 		for (; first != last; ++first)
 		{
@@ -365,13 +361,13 @@ namespace ealg
 	}
 
 	template< class InputIt, class UnaryPredicate >
-	constexpr bool any_of(InputIt first, InputIt last, UnaryPredicate p)
+	ENCLAVE_CONSTEXPR bool any_of(InputIt first, InputIt last, UnaryPredicate p)
 	{
 		return ealg::find_if(first, last, p) != last;
 	}
 
 	template< class InputIt, class UnaryPredicate >
-	constexpr bool none_of(InputIt first, InputIt last, UnaryPredicate p)
+	ENCLAVE_CONSTEXPR bool none_of(InputIt first, InputIt last, UnaryPredicate p)
 	{
 		return ealg::find_if(first, last, p) == last;
 	}
@@ -385,6 +381,58 @@ namespace ealg
 		return start_dest_range;
 	}
 
+	template< class InputIt1, class InputIt2 >
+	bool equal(InputIt1 first1, InputIt1 last1, InputIt2 first2)
+	{
+		for (; first1 != last1; ++first1, ++first2)
+		{
+			if (!(*first1 == *first2)) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	template<class InputIt1, class InputIt2, class BinaryPredicate>
+	bool equal(InputIt1 first1, InputIt1 last1, InputIt2 first2, BinaryPredicate p)
+	{
+		for (; first1 != last1; ++first1, ++first2)
+		{
+			if (!p(*first1, *first2)) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	template< class InputIt, class T>
+	typename std::iterator_traits<InputIt>::difference_type
+		count(InputIt first, InputIt last, const T& value)
+	{
+		typename std::iterator_traits<InputIt>::difference_type counter = 0;
+		for (; first != last; ++first)
+		{
+			if (*first == value) {
+				++counter;
+			}
+		}
+		return counter;
+	}
+
+	template< class InputIt, class UnaryPredicate>
+	typename std::iterator_traits<InputIt>::difference_type
+		count_if(InputIt first, InputIt last, UnaryPredicate predicate)
+	{
+		typename std::iterator_traits<InputIt>::difference_type counter = 0;
+		for (; first != last; ++first)
+		{
+			if (predicate(*first)) {
+				++counter;
+			}
+		}
+		return counter;
+	}
+
 	template< class T >
 	T&& forward(typename std::remove_reference<T>::type& t) noexcept
 	{
@@ -392,12 +440,15 @@ namespace ealg
 			"can not forward an rvalue as an lvalue");
 		return static_cast<T&&>(t);
 	}
+	
+
 
 	template< class RandomIt >
 	void random_shuffle(RandomIt first, RandomIt last)
 	{
 
 	}
+
 	template< class RandomIt, class RandomFunc >
 	void random_shuffle(RandomIt first, RandomIt last, RandomFunc& r)
 	{
