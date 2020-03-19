@@ -12,6 +12,8 @@
 
 #define ENCLAVE_ASSERT_MSG(expression, message) static_assert(expression, message)
 
+#define ENCLAVE_CONSTEXPR constexpr
+
 typedef size_t SIZE_T;
 
 #endif
