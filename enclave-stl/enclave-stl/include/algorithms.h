@@ -1,10 +1,8 @@
 #ifndef ENCLAVE_STL_ALGORITHMS
 #define ENCLAVE_STL_ALGORITHMS
 
-#include <vector>
 #include <exception>
 #include "base/config.h"
-#include "sequance_iterator.h"
 
 // TODO LIST!!!
 // sort
