@@ -14,11 +14,8 @@
 
 // copy_if
 // copy_backward
-// equal
-// equal<Compare>
 // equal_range
 // equal_range<Compare>
-// move
 // binary_search
 // binary_search<Compare>
 // binary_search_i
