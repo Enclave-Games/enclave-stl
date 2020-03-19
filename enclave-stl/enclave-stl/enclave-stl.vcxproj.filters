@@ -78,7 +78,7 @@
     <ClInclude Include="include\base\red_black_tree.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="include\thr\thread.h">
+    <ClInclude Include="include\type_traits.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

@@ -149,7 +149,7 @@
     <ClInclude Include="include\binary_tree.h" />
     <ClInclude Include="include\expression_tree.h" />
     <ClInclude Include="include\general_tree.h" />
-    <ClInclude Include="include\thr\thread.h" />
+    <ClInclude Include="include\type_traits.h" />
     <ClInclude Include="include\utils\container.h" />
   </ItemGroup>
   <ItemGroup>
