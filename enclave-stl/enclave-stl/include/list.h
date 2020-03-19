@@ -3,6 +3,7 @@
 
 #include <stdexcept>
 #include "sequance_iterator.h"
+#include "algorithms.h"
 #include <iostream>
 
 namespace estl
@@ -84,8 +85,8 @@ namespace estl
 	}
 
 
-	// Initialize list with initial capacity
-	// Parameter: initial_capacity - initial size of the current array
+	// @brief Initialize list with initial capacity
+	// @params: initial_capacity - initial size of the current array
 	template <typename ArrayType>
 	list<ArrayType>::list(uint32_t initial_capacity)
 	{
