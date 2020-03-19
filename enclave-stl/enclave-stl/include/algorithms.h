@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <exception>
+#include "base/config.h"
 #include "sequance_iterator.h"
 
 // TODO LIST!!!
@@ -387,7 +388,7 @@ namespace ealg
 	template< class T >
 	T&& forward(typename std::remove_reference<T>::type& t) noexcept
 	{
-		static_assert(!is_lvalue_reference<T>::value,
+		ENCLAVE_ASSERT_MSG(!is_lvalue_reference<T>::value,
 			"can not forward an rvalue as an lvalue");
 		return static_cast<T&&>(t);
 	}
