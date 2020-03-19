@@ -14,6 +14,8 @@
 
 #define ENCLAVE_CONSTEXPR constexpr
 
+#define ENCLAVE_NOEXC noexcept
+
 typedef size_t SIZE_T;
 
 #endif
