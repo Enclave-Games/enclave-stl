@@ -8,6 +8,8 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 
+#define EUTIL_MOVE(var) ::eutil::move(var)
+
 #define ENCLAVE_ASSERT(expression) static_assert(expression, #expression)
 
 #define ENCLAVE_ASSERT_MSG(expression, message) static_assert(expression, message)
