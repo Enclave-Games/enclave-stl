@@ -132,7 +132,9 @@
     <ClInclude Include="include\algorithms.h" />
     <ClInclude Include="include\associative_iterator.h" />
     <ClInclude Include="include\base\config.h" />
+    <ClInclude Include="include\base\new.h" />
     <ClInclude Include="include\base\red_black_tree.h" />
+    <ClInclude Include="include\heap_util.h" />
     <ClInclude Include="include\iterator.h" />
     <ClInclude Include="include\sequance_iterator.h" />
     <ClInclude Include="include\linked_list.h" />
@@ -151,10 +153,13 @@
     <ClInclude Include="include\expression_tree.h" />
     <ClInclude Include="include\general_tree.h" />
     <ClInclude Include="include\type_traits.h" />
-    <ClInclude Include="include\utils\container.h" />
+    <ClInclude Include="include\utility.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="test\TestList.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
