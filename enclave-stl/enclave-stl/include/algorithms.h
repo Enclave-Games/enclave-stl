@@ -1,6 +1,7 @@
 #ifndef ENCLAVE_STL_ALGORITHMS
 #define ENCLAVE_STL_ALGORITHMS
 
+#include <vector>
 #include <exception>
 #include "base/config.h"
 
@@ -10,7 +11,6 @@
 // sort_heap         
 // sort_heap<Compare>
 
-// copy_if
 // copy_backward
 // equal_range
 // equal_range<Compare>
@@ -94,7 +94,7 @@ namespace ealg
 		}
 
 		ForwardIt largest = first;
-
+		++first;
 		for (; first != last; ++first)
 		{
 			if (*largest < *first)
@@ -172,7 +172,7 @@ namespace ealg
 	template<class T>
 	const T& max(const T& a, const T& b)
 	{
-		return (b < a) ? a : b;
+		return (a < b) ? b : a;
 	}
 
 	template<class T, class Compare>
@@ -376,6 +376,26 @@ namespace ealg
 		return start_dest_range;
 	}
 
+	template< class InputIt, class OutputIt, class UnaryPredicate >
+	OutputIt copy_if(InputIt first, InputIt last,
+		OutputIt start_dest_range,
+		UnaryPredicate pred)
+	{
+		while (first != last) {
+			if (pred(*first)) {
+				*start_dest_range++ = *first++;
+			}
+		}
+		return start_dest_range;
+	}
+
+	template< class BidirIt1, class BidirIt2 >
+	BidirIt2 copy_backward(BidirIt1 first, BidirIt1 last, BidirIt2 d_last)
+	{
+
+	}
+
+
 	template< class InputIt1, class InputIt2 >
 	bool equal(InputIt1 first1, InputIt1 last1, InputIt2 first2)
 	{
@@ -426,20 +446,6 @@ namespace ealg
 			}
 		}
 		return counter;
-	}
-
-	template< class T >
-	T&& forward(typename std::remove_reference<T>::type& t) ENCLAVE_NOEXC
-	{
-		ENCLAVE_ASSERT_MSG(!is_lvalue_reference<T>::value,
-			"can not forward an rvalue as an lvalue");
-		return static_cast<T&&>(t);
-	}
-	
-	template< class T >
-	typename std::remove_reference<T>::type&& move(T&& t) ENCLAVE_NOEXC
-	{
-		return static_cast<typename std::remove_reference<T>::type&&>(t);
 	}
 
 	template< class RandomIt >
