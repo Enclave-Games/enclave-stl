@@ -383,7 +383,7 @@ namespace ealg
 	OutputIt copy(InputIt first, InputIt last, OutputIt start_dest_range)
 	{
 		while (first != last) {
-			*start_dest_range++ = *first++;
+			*(++start_dest_range) = *(++first);
 		}
 		return start_dest_range;
 	}
@@ -393,7 +393,7 @@ namespace ealg
 	{
 		while (first != last) {
 			if (pred(*first)) {
-				*start_dest_range++ = *first++;
+				*(++start_dest_range) = *(++first);
 			}
 		}
 		return start_dest_range;
