@@ -2,6 +2,7 @@
 #define ENCLAVE_STL_CONFIG
 
 ///////////////////////////////////////////////////////////////////////////////
+/// File - config.h
 /// This is the ENCLAVE_STL configuration file. All configurable parameters of ENCLAVE_STL
 /// are controlled through this file. However, all the settings here can be
 /// manually overridden by the user
