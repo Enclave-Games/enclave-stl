@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <exception>
+#include <random>
 #include "base/config.h"
 
 // TODO LIST!!!
@@ -11,13 +12,8 @@
 // sort_heap         
 // sort_heap<Compare>
 
-// binary_search_i
-// binary_search_i<Compare>
 // change_heap
 // change_heap<Compare>
-// random_shuffle
-// rand
-// shuffle
 
 namespace ealg
 {
@@ -590,19 +586,35 @@ namespace ealg
 	template< class RandomIt >
 	void random_shuffle(RandomIt first, RandomIt last)
 	{
-
+		typename std::iterator_traits<RandomIt>::difference_type i, n;
+		n = last - first;
+		for (i = n - 1; i > 0; --i) {
+			eutil::swap(first[i], first[std::rand() % (i + 1)]);
+		}
 	}
 
 	template< class RandomIt, class RandomFunc >
 	void random_shuffle(RandomIt first, RandomIt last, RandomFunc& r)
 	{
-
+		typename std::iterator_traits<RandomIt>::difference_type i, n;
+		n = last - first;
+		for (i = n - 1; i > 0; --i) {
+			eutil::swap(first[i], first[r(i + 1)]);
+		}
 	}
 
 	template< class RandomIt, class URBG >
 	void shuffle(RandomIt first, RandomIt last, URBG&& g)
 	{
+		typedef typename std::iterator_traits<RandomIt>::difference_type diff_t;
+		typedef std::uniform_int_distribution<diff_t> distr_t;
+		typedef typename distr_t::param_type param_t;
 
+		distr_t D;
+		diff_t n = last - first;
+		for (diff_t i = n - 1; i > 0; --i) {
+			eutil::swap(first[i], first[D(g, param_t(0, i))]);
+		}
 	}
 }
 
