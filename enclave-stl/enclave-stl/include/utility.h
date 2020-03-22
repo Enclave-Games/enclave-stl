@@ -27,6 +27,32 @@ namespace eutil
 		b = EUTIL_MOVE(_temp);
 	}
 
+	template <class T>
+	T next(T x)
+	{
+		return ++x;
+	}
+
+	template <class T, class Distance>
+	T next(T x, Distance n)
+	{
+		ealg::advance(x, n);
+		return x;
+	}
+
+	template <class T>
+	T prior(T x)
+	{
+		return --x;
+	}
+
+	template <class T, class Distance>
+	T prior(T x, Distance n)
+	{
+		ealg::advance(x, -n);
+		return x;
+	}
+
 	template< class T >
 	struct static_cast_to
 	{
