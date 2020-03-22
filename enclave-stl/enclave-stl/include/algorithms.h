@@ -5,13 +5,21 @@
 #include <exception>
 #include <random>
 #include "base/config.h"
+#include "iterator.h"
 
 // TODO LIST!!!
 // sort
 // sort<Compare>     
-// sort_heap         
-// sort_heap<Compare>
-
+// for_each_n
+// mismatch
+// fill
+// fill_n
+// find
+// find_end
+// find_first_of
+// search
+// search_n
+// copy_n
 
 namespace ealg
 {
@@ -486,7 +494,7 @@ namespace ealg
 	}
 
 	template< class InputIt >
-	typename std::iterator_traits<InputIt>::difference_type 
+	typename estl::iterator_traits<InputIt>::difference_type 
 			distance(InputIt first, InputIt last)
 	{
 		return last - first;
@@ -496,7 +504,7 @@ namespace ealg
 	ForwardIt lower_bound(ForwardIt first, ForwardIt last, const T& value)
 	{
 		ForwardIt it;
-		typename std::iterator_traits<ForwardIt>::difference_type count, step;
+		typename estl::iterator_traits<ForwardIt>::difference_type count, step;
 		count = ealg::distance(first, last);
 
 		while (count > 0)
@@ -519,7 +527,7 @@ namespace ealg
 	ForwardIt lower_bound(ForwardIt first, ForwardIt last, const T& value, Compare comp)
 	{
 		ForwardIt it;
-		typename std::iterator_traits<ForwardIt>::difference_type count, step;
+		typename estl::iterator_traits<ForwardIt>::difference_type count, step;
 		count = ealg::distance(first, last);
 
 		while (count > 0)
@@ -542,7 +550,7 @@ namespace ealg
 	ForwardIt upper_bound(ForwardIt first, ForwardIt last, const T& value)
 	{
 		ForwardIt it;
-		typename std::iterator_traits<ForwardIt>::difference_type count, step;
+		typename estl::iterator_traits<ForwardIt>::difference_type count, step;
 		count = ealg::distance(first, last);
 
 		while (count > 0)
@@ -565,7 +573,7 @@ namespace ealg
 	ForwardIt upper_bound(ForwardIt first, ForwardIt last, const T& value, Compare comp)
 	{
 		ForwardIt it;
-		typename std::iterator_traits<ForwardIt>::difference_type count, step;
+		typename estl::iterator_traits<ForwardIt>::difference_type count, step;
 		count = ealg::distance(first, last);
 
 		while (count > 0)
@@ -601,7 +609,7 @@ namespace ealg
 	}
 
 	template< class InputIt, class T>
-	typename std::iterator_traits<InputIt>::difference_type
+	typename estl::iterator_traits<InputIt>::difference_type
 		count(InputIt first, InputIt last, const T& value)
 	{
 		typename std::iterator_traits<InputIt>::difference_type counter = 0;
@@ -618,7 +626,7 @@ namespace ealg
 	typename std::iterator_traits<InputIt>::difference_type
 		count_if(InputIt first, InputIt last, UnaryPredicate predicate)
 	{
-		typename std::iterator_traits<InputIt>::difference_type counter = 0;
+		typename estl::iterator_traits<InputIt>::difference_type counter = 0;
 		for (; first != last; ++first)
 		{
 			if (predicate(*first)) {
@@ -631,7 +639,7 @@ namespace ealg
 	template< class RandomIt >
 	void random_shuffle(RandomIt first, RandomIt last)
 	{
-		typename std::iterator_traits<RandomIt>::difference_type i, n;
+		typename estl::iterator_traits<RandomIt>::difference_type i, n;
 		n = last - first;
 		for (i = n - 1; i > 0; --i) {
 			eutil::swap(first[i], first[std::rand() % (i + 1)]);
@@ -641,7 +649,7 @@ namespace ealg
 	template< class RandomIt, class RandomFunc >
 	void random_shuffle(RandomIt first, RandomIt last, RandomFunc& r)
 	{
-		typename std::iterator_traits<RandomIt>::difference_type i, n;
+		typename estl::iterator_traits<RandomIt>::difference_type i, n;
 		n = last - first;
 		for (i = n - 1; i > 0; --i) {
 			eutil::swap(first[i], first[r(i + 1)]);
@@ -651,7 +659,7 @@ namespace ealg
 	template< class RandomIt, class URBG >
 	void shuffle(RandomIt first, RandomIt last, URBG&& g)
 	{
-		typedef typename std::iterator_traits<RandomIt>::difference_type diff_t;
+		typedef typename estl::iterator_traits<RandomIt>::difference_type diff_t;
 		typedef std::uniform_int_distribution<diff_t> distr_t;
 		typedef typename distr_t::param_type param_t;
 
