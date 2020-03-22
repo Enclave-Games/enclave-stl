@@ -4,7 +4,7 @@
 namespace estl
 {
 	template <typename Category, typename T, typename Distance,
-		typename Pointer = T *, typename Reference = T &>
+		typename Pointer = T*, typename Reference = T&>
 
 	struct iterator
 	{
