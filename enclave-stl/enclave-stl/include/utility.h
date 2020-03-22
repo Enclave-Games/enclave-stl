@@ -22,10 +22,50 @@ namespace eutil
 	template <class T>
 	ENCLAVE_CONSTEXPR void swap(T& a, T& b) ENCLAVE_NOEXC
 	{
-		T _temp = a;
+		T _temp = EUTIL_MOVE(a);
 		a = EUTIL_MOVE(b);
 		b = EUTIL_MOVE(_temp);
 	}
+
+	template< class T >
+	struct static_cast_to
+	{
+		template< class U >
+		T operator()(U u) const
+		{
+			return static_cast<T>(u);
+		}
+	};
+
+	template< class T >
+	struct dynamic_cast_to
+	{
+		template< class U >
+		T operator()(U u) const
+		{
+			return dynamic_cast<T>(u);
+		}
+	};
+
+	template< class T >
+	struct const_cast_to
+	{
+		template< class U >
+		T operator()(U u) const
+		{
+			return const_cast<T>(u);
+		}
+	};
+
+	template< class T >
+	struct reinterpret_cast_to
+	{
+		template< class U >
+		T operator()(U u) const
+		{
+			return reinterprest_cast<T>(u);
+		}
+	};
 }
 
 
