@@ -453,13 +453,11 @@ namespace ealg
 			it = first;
 			step = count / 2;
 			ealg::advance(it, step);
-			if (*it < value)
-			{
+			if (*it < value) {
 				first = ++it;
 				count -= step + 1;
 			}
-			else
-			{
+			else {
 				count = step;
 			}
 		}
@@ -478,13 +476,11 @@ namespace ealg
 			it = first;
 			step = count / 2;
 			ealg::advance(it, step);
-			if (comp(*it, value))
-			{
+			if (comp(*it, value)) {
 				first = ++it;
 				count -= step + 1;
 			}
-			else
-			{
+			else {
 				count = step;
 			}
 		}
@@ -503,13 +499,11 @@ namespace ealg
 			it = first;
 			step = count / 2;
 			ealg::advance(it, step);
-			if (!(value < *it))
-			{
+			if (!(value < *it)) {
 				first = ++it;
 				count -= step + 1;
 			}
-			else
-			{
+			else {
 				count = step;
 			}
 		}
