@@ -12,8 +12,6 @@
 // sort_heap         
 // sort_heap<Compare>
 
-// change_heap
-// change_heap<Compare>
 
 namespace ealg
 {
@@ -79,6 +77,16 @@ namespace ealg
 			}
 		}
 		return begin;
+	}
+
+	template< class InputIt, class UnaryFunction >
+	UnaryFunction for_each(InputIt first, InputIt last, UnaryFunction f)
+	{
+		for (; first != last; ++first)
+		{
+			f(*first);
+		}
+		return f;
 	}
 
 	template< class ForwardIt >
