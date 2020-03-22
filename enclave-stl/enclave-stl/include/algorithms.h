@@ -11,8 +11,6 @@
 // sort_heap         
 // sort_heap<Compare>
 
-// binary_search
-// binary_search<Compare>
 // binary_search_i
 // binary_search_i<Compare>
 // change_heap
@@ -309,6 +307,22 @@ namespace ealg
 		return last;
 	}
 
+	template< class ForwardIt, class T >
+	bool binary_search(ForwardIt first, ForwardIt last, const T& value)
+	{
+		first = ealg::lower_bound(first, last, value);
+		return (!(first == last) && !(value < *first));
+	}
+
+
+	template<class ForwardIt, class T, class Compare>
+	bool binary_search(ForwardIt first, ForwardIt last, const T& value, Compare comp)
+	{
+		first = std::lower_bound(first, last, value, comp);
+		return (!(first == last) && !(comp(value, *first)));
+	}
+
+
 	template< class InputIt, class T >
 	InputIt find(InputIt first, InputIt last, const T& value)
 	{
@@ -379,9 +393,7 @@ namespace ealg
 	}
 
 	template< class InputIt, class OutputIt, class UnaryPredicate >
-	OutputIt copy_if(InputIt first, InputIt last,
-		OutputIt start_dest_range,
-		UnaryPredicate pred)
+	OutputIt copy_if(InputIt first, InputIt last, OutputIt start_dest_range, UnaryPredicate pred)
 	{
 		while (first != last) {
 			if (pred(*first)) {
