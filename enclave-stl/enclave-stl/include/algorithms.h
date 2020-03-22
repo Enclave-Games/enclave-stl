@@ -20,6 +20,8 @@
 // search
 // search_n
 // copy_n
+// unique
+// unique<Compare>
 
 namespace ealg
 {
