@@ -63,7 +63,7 @@ namespace eutil
 		template< class U >
 		T operator()(U u) const
 		{
-			return reinterprest_cast<T>(u);
+			return reinterpret_cast<T>(u);
 		}
 	};
 }
