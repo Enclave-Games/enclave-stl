@@ -11,14 +11,10 @@
 // sort_heap         
 // sort_heap<Compare>
 
-// copy_backward
-// equal_range
-// equal_range<Compare>
 // binary_search
 // binary_search<Compare>
 // binary_search_i
 // binary_search_i<Compare>
-// distance
 // change_heap
 // change_heap<Compare>
 // random_shuffle
@@ -27,6 +23,12 @@
 
 namespace ealg
 {
+	template< class InputIt, class Distance >
+	void advance(InputIt& it, Distance n)
+	{
+		it += n;
+	}
+
 	template <typename RandomAccessIter>
 	void sort(RandomAccessIter start, RandomAccessIter end)
 	{
@@ -392,7 +394,11 @@ namespace ealg
 	template< class BidirIt1, class BidirIt2 >
 	BidirIt2 copy_backward(BidirIt1 first, BidirIt1 last, BidirIt2 d_last)
 	{
-
+		while(first != last)
+		{
+			*(--d_last) = *(--last);
+		}
+		return d_last;
 	}
 
 
@@ -418,6 +424,127 @@ namespace ealg
 			}
 		}
 		return true;
+	}
+
+	template< class InputIt >
+	typename std::iterator_traits<InputIt>::difference_type 
+			distance(InputIt first, InputIt last)
+	{
+		return last - first;
+	}
+
+	template< class ForwardIt, class T >
+	ForwardIt lower_bound(ForwardIt first, ForwardIt last, const T& value)
+	{
+		ForwardIt it;
+		typename std::iterator_traits<ForwardIt>::difference_type count, step;
+		count = ealg::distance(first, last);
+
+		while (count > 0)
+		{
+			it = first;
+			step = count / 2;
+			ealg::advance(it, step);
+			if (*it < value)
+			{
+				first = ++it;
+				count -= step + 1;
+			}
+			else
+			{
+				count = step;
+			}
+		}
+		return first;
+	}
+
+	template< class ForwardIt, class T, class Compare >
+	ForwardIt lower_bound(ForwardIt first, ForwardIt last, const T& value, Compare comp)
+	{
+		ForwardIt it;
+		typename std::iterator_traits<ForwardIt>::difference_type count, step;
+		count = ealg::distance(first, last);
+
+		while (count > 0)
+		{
+			it = first;
+			step = count / 2;
+			ealg::advance(it, step);
+			if (comp(*it, value))
+			{
+				first = ++it;
+				count -= step + 1;
+			}
+			else
+			{
+				count = step;
+			}
+		}
+		return first;
+	}
+
+	template< class ForwardIt, class T >
+	ForwardIt upper_bound(ForwardIt first, ForwardIt last, const T& value)
+	{
+		ForwardIt it;
+		typename std::iterator_traits<ForwardIt>::difference_type count, step;
+		count = ealg::distance(first, last);
+
+		while (count > 0)
+		{
+			it = first;
+			step = count / 2;
+			ealg::advance(it, step);
+			if (!(value < *it))
+			{
+				first = ++it;
+				count -= step + 1;
+			}
+			else
+			{
+				count = step;
+			}
+		}
+		return first;
+	}
+
+	template< class ForwardIt, class T, class Compare >
+	ForwardIt upper_bound(ForwardIt first, ForwardIt last, const T& value, Compare comp)
+	{
+		ForwardIt it;
+		typename std::iterator_traits<ForwardIt>::difference_type count, step;
+		count = ealg::distance(first, last);
+
+		while (count > 0)
+		{
+			it = first;
+			step = count / 2;
+			ealg::advance(it, step);
+			if (!comp(value, *it))
+			{
+				first = ++it;
+				count -= step + 1;
+			}
+			else
+			{
+				count = step;
+			}
+		}
+		return first;
+	}
+
+	template< class ForwardIt, class T >
+	std::pair<ForwardIt, ForwardIt> equal_range(ForwardIt first, ForwardIt last, const T& value)
+	{
+		return std::make_pair(ealg::lower_bound(first, last, value),
+			ealg::upper_bound(first, last, value));
+	}
+
+	template< class ForwardIt, class T, class Compare >
+	std::pair<ForwardIt, ForwardIt> equal_range(ForwardIt first, ForwardIt last, const T& value, Compare comp)
+	{
+		return std::make_pair(ealg::lower_bound(first, last, value, comp),
+			ealg::upper_bound(first, last, value, comp));
 	}
 
 	template< class InputIt, class T>
