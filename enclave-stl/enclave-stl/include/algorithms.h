@@ -12,8 +12,6 @@
 // sort<Compare>     
 // for_each_n
 // mismatch
-// fill
-// fill_n
 // find
 // find_end
 // find_first_of
@@ -50,6 +48,23 @@ namespace ealg
 			}
 		}
 	}
+
+	template< class ForwardIt, class T >
+	void fill(ForwardIt first, ForwardIt last, const T& value)
+	{
+		for (; first != last; ++first) {
+			*first = value;
+		}
+	}
+
+	template< class OutputIt, class Size, class T >
+	void fill_n(OutputIt first, Size count, const T& value)
+	{
+		for (Size i = 0; i < count; i++) {
+			*first++ = value;
+		}
+	}
+
 
 	template <typename ForwardIter>
 	ForwardIter max(ForwardIter begin, ForwardIter end)
@@ -614,7 +629,7 @@ namespace ealg
 	typename estl::iterator_traits<InputIt>::difference_type
 		count(InputIt first, InputIt last, const T& value)
 	{
-		typename std::iterator_traits<InputIt>::difference_type counter = 0;
+		typename estl::iterator_traits<InputIt>::difference_type counter = 0;
 		for (; first != last; ++first)
 		{
 			if (*first == value) {
@@ -625,7 +640,7 @@ namespace ealg
 	}
 
 	template< class InputIt, class UnaryPredicate>
-	typename std::iterator_traits<InputIt>::difference_type
+	typename estl::iterator_traits<InputIt>::difference_type
 		count_if(InputIt first, InputIt last, UnaryPredicate predicate)
 	{
 		typename estl::iterator_traits<InputIt>::difference_type counter = 0;
