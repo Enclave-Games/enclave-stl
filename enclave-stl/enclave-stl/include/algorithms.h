@@ -12,7 +12,6 @@
 // sort<Compare>     
 // for_each_n
 // mismatch
-// find
 // find_end
 // find_first_of
 // search
@@ -113,6 +112,17 @@ namespace ealg
 		}
 		return f;
 	}
+
+	template< class InputIt, class Size, class UnaryFunction >
+	InputIt for_each_n(InputIt first, Size n, UnaryFunction f)
+	{
+		for (Size i = 0; i < n; i++, ++first)
+		{
+			f(*first);
+		}
+		return first;
+	}
+
 
 	template< class ForwardIt >
 	ForwardIt max_element(ForwardIt first, ForwardIt last)
