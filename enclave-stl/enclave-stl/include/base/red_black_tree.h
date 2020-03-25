@@ -3,7 +3,13 @@
 
 namespace estl
 {
+	class red_black_tree
+	{
+	public:
 
+	private:
+
+	};
 }
 
 #endif
