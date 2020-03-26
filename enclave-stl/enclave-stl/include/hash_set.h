@@ -6,6 +6,9 @@ namespace estl
 {
 	class hash_set
 	{
+	public:
+
+	private:
 
 	};
 }
