@@ -93,7 +93,10 @@
     <ClInclude Include="include\base\xmath.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="include\helper\makers.h">
+    <ClInclude Include="include\base\makers.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="include\base\smart_ptr.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

@@ -136,7 +136,8 @@
     <ClInclude Include="include\base\red_black_tree.h" />
     <ClInclude Include="include\base\xmath.h" />
     <ClInclude Include="include\heap_util.h" />
-    <ClInclude Include="include\helper\makers.h" />
+    <ClInclude Include="include\base\makers.h" />
+    <ClInclude Include="include\base\smart_ptr.h" />
     <ClInclude Include="include\iterator.h" />
     <ClInclude Include="include\sequance_iterator.h" />
     <ClInclude Include="include\linked_list.h" />
