@@ -7,11 +7,14 @@
 namespace emakers
 {
 	template< typename Sequence >
-	void make_unique_sequance(Sequence& seq)
+	void make_unique_sequance(Sequence& seq, bool resize_now)
 	{
 		ealg::sort(seq.begin(), seq.end());
 		auto it = std::unique(seq.begin(), seq.end());
-		seq.resize(ealg::distance(seq.begin(), it);
+
+		if (resize_now) {
+			seq.resize(ealg::distance(seq.begin(), it);
+		}
 	}
 }
 
