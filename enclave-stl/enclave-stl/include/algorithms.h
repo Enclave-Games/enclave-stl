@@ -743,10 +743,10 @@ namespace ealg
 
 		if (first != last)
 		{
-			for (ForwardIt i = first; i != last; ++i)
+			for (ForwardIt i = first; ++i != last; )
 			{
 				if (!(*i == value)) {
-					++(*first) = eutil::move(*i);
+					*first++ = eutil::move(*i);
 				}
 			}
 		}
