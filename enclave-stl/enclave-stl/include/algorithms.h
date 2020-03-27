@@ -6,6 +6,7 @@
 #include <random>
 #include "base/config.h"
 #include "iterator.h"
+#include "utility.h"
 
 // TODO LIST!!!
 // sort
@@ -397,6 +398,7 @@ namespace ealg
 		return ealg::copy(first2, last2, d_first);
 	}
 
+
 	template<class ForwardIt, class T, class Compare>
 	bool binary_search(ForwardIt first, ForwardIt last, const T& value, Compare comp)
 	{
@@ -691,9 +693,49 @@ namespace ealg
 		typedef typename distr_t::param_type param_t;
 
 		distr_t D;
-		diff_t n = last - first;
+		diff_t n = ealg::distance(first, last);
 		for (diff_t i = n - 1; i > 0; --i) {
 			eutil::swap(first[i], first[D(g, param_t(0, i))]);
+		}
+	}
+
+
+	template< class ForwardIt, class BinaryPredicate >
+	ForwardIt unique(ForwardIt first, ForwardIt last, BinaryPredicate predicate)
+	{
+		if (first == last) {
+			return last;
+		}
+
+		ForwardIt result = first;
+
+		while (++first != last)
+		{
+			if (!predicate(*result, *first) && (++result != first)) {
+				*result = eutil::move(*first);
+			}
+		}
+
+		return ++result;
+	}
+
+	template< class ForwardIt >
+	ForwardIt unique(ForwardIt first, ForwardIt last)
+	{
+		return ealg::unique(first, last, std::equal_to<>());
+	}
+
+	template< class ForwardIt1, class ForwardIt2 >
+	void iter_swap(ForwardIt1 left, ForwardIt2 right)
+	{
+		eutil::swap(*left, *right);
+	}
+
+	template< class BidirIt >
+	void reverse(BidirIt first, BidirIt last)
+	{
+		while ((first != last) && (first != --last)) {
+			ealg::iter_swap(first++, last);
 		}
 	}
 }
