@@ -8,16 +8,6 @@
 #include "iterator.h"
 #include "utility.h"
 
-// TODO LIST!!!
-// sort
-// sort<Compare>     
-// mismatch
-// find_end
-// find_first_of
-// search
-// search_n
-// copy_n
-
 
 namespace ealg
 {
