@@ -11,15 +11,13 @@
 // TODO LIST!!!
 // sort
 // sort<Compare>     
-// for_each_n
 // mismatch
 // find_end
 // find_first_of
 // search
 // search_n
 // copy_n
-// unique
-// unique<Compare>
+
 
 namespace ealg
 {
@@ -44,7 +42,6 @@ namespace ealg
 
 			for (RandomAccessIter it = start; it != end; it++)
 			{
-				
 			}
 		}
 	}
@@ -737,6 +734,23 @@ namespace ealg
 		while ((first != last) && (first != --last)) {
 			ealg::iter_swap(first++, last);
 		}
+	}
+
+	template< class ForwardIt, class T >
+	ForwardIt remove(ForwardIt first, ForwardIt last, const T& value)
+	{
+		first = ealg::find(first, last, value);
+
+		if (first != last)
+		{
+			for (ForwardIt i = first; i != last; ++i)
+			{
+				if (!(*i == value)) {
+					++(*first) = eutil::move(*i);
+				}
+			}
+		}
+		return first;
 	}
 }
 
