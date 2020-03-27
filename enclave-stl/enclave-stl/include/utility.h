@@ -16,15 +16,15 @@ namespace eutil
 	template< class T >
 	typename std::remove_reference<T>::type&& move(T&& t) ENCLAVE_NOEXC
 	{
-		return static_cast<typename std::remove_reference<T>::type&&>(t);
+		return static_cast<std::remove_reference_t<T>&&>(t);
 	}
 
 	template <class T>
-	ENCLAVE_CONSTEXPR void swap(T& a, T& b) ENCLAVE_NOEXC
+	ENCLAVE_CONSTEXPR void swap(T& left, T& right) ENCLAVE_NOEXC
 	{
-		T _temp = EUTIL_MOVE(a);
-		a = EUTIL_MOVE(b);
-		b = EUTIL_MOVE(_temp);
+		T _temp = EUTIL_MOVE(left);
+		left = EUTIL_MOVE(right);
+		right = EUTIL_MOVE(_temp);
 	}
 
 	template <class T>
