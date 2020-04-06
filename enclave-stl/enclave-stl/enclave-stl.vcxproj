@@ -159,6 +159,7 @@
     <ClInclude Include="include\utility.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="include\sort_extra.h" />
     <ClCompile Include="test\TestList.cpp" />
   </ItemGroup>
   <ItemGroup>
