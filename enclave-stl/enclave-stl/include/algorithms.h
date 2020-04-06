@@ -17,6 +17,8 @@ namespace ealg
 		it += n;
 	}
 
+
+	// @brief Default Merge Sort 
 	template <typename RandomAccessIter>
 	void sort(RandomAccessIter start, RandomAccessIter end)
 	{
