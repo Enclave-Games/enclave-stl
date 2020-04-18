@@ -7,6 +7,7 @@
 #include "base/config.h"
 #include "iterator.h"
 #include "utility.h"
+#include <iostream>
 
 
 namespace ealg
@@ -18,24 +19,18 @@ namespace ealg
 	}
 
 
-	// @brief Default Merge Sort 
-	template <typename RandomAccessIter>
-	void sort(RandomAccessIter start, RandomAccessIter end)
+	template < class RandomIt >
+	void sort(const RandomIt start, const RandomIt end)
 	{
-		if (start == end)
-		{
-			throw std::exception("Fail sort!");
-		}
+		ealg::sort(start, end, std::less<>());
+	}
 
-		if (start != end)
-		{
-			RandomAccessIter pivot = end;
-			RandomAccessIter p_index = start;
-
-			for (RandomAccessIter it = start; it != end; it++)
-			{
-			}
-		}
+	template< class RandomIt, class Compare >
+	void sort(const RandomIt start, const RandomIt end, Compare comp)
+	{
+		const auto first = eutil::get_unwrapped(start);
+		const auto last = eutil::get_unwrapped(end);
+		std::_Sort_unchecked(first, last, last - first, _Pass_fn(comp));
 	}
 
 	template< class ForwardIt, class T >
