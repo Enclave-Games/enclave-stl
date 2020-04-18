@@ -27,6 +27,28 @@ namespace eutil
 		right = EUTIL_MOVE(_temp);
 	}
 
+	template <class Iter, std::enable_if_t<!std::_Unwrappable_v<Iter>, int> = 0>
+	constexpr const Iter && get_unwrapped(
+		const Iter && It) {
+		return static_cast<const Iter&&>(It);
+	}
+
+	template <class Iter, std::enable_if_t<!std::_Unwrappable_v<Iter>, int> = 0>
+	constexpr const Iter & get_unwrapped(
+		const Iter & It) {
+		return It;
+	}
+
+	template <class Iter, std::enable_if_t<std::_Unwrappable_v<Iter>, int> = 0>
+	constexpr auto get_unwrapped(const Iter & It) {
+		return It._Unwrapped();
+	}
+
+	template <class _T>
+	ENCLAVE_CONSTEXPR _T* get_unwrapped(const _T* _Ptr) {
+		return _Ptr;
+	}
+
 	template <class T>
 	T next(T x)
 	{
