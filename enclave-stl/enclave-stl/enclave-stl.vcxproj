@@ -132,9 +132,11 @@
     <ClInclude Include="include\algorithms.h" />
     <ClInclude Include="include\associative_iterator.h" />
     <ClInclude Include="include\base\config.h" />
+    <ClInclude Include="include\base\functors.h" />
     <ClInclude Include="include\base\new.h" />
     <ClInclude Include="include\base\red_black_tree.h" />
     <ClInclude Include="include\base\xmath.h" />
+    <ClInclude Include="include\concurrent\concurrent_map.h" />
     <ClInclude Include="include\heap_util.h" />
     <ClInclude Include="include\base\makers.h" />
     <ClInclude Include="include\base\smart_ptr.h" />
