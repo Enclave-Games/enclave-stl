@@ -102,6 +102,9 @@
     <ClInclude Include="include\concurrent\concurrent_map.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="include\sorted_set.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
     <ClInclude Include="include\base\functors.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>

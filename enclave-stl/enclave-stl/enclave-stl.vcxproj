@@ -90,6 +90,7 @@
       <AdditionalIncludeDirectories>D:\Enclave\enclave-stl\enclave-stl\enclave-stl\include;D:\Enclave\enclave-stl\enclave-stl\enclave-stl\src\iterators;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <DisableSpecificWarnings>4996</DisableSpecificWarnings>
+      <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -121,6 +122,7 @@
       <AdditionalIncludeDirectories>D:\Enclave\enclave-stl\enclave-stl\enclave-stl\include;D:\Enclave\enclave-stl\enclave-stl\enclave-stl\src\iterators;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <DisableSpecificWarnings>4996</DisableSpecificWarnings>
+      <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -157,6 +159,7 @@
     <ClInclude Include="include\binary_tree.h" />
     <ClInclude Include="include\expression_tree.h" />
     <ClInclude Include="include\general_tree.h" />
+    <ClInclude Include="include\sorted_set.h" />
     <ClInclude Include="include\type_traits.h" />
     <ClInclude Include="include\utility.h" />
   </ItemGroup>
