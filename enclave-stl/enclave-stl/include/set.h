@@ -1,10 +1,10 @@
-#ifndef ENCLAVE_STL_SET_H
-#define ENCLAVE_STL_SET_H
+#ifndef ENCLAVE_STL_SET
+#define ENCLAVE_STL_SET
 
-#include <functional>
+#include "base/config.h"
+#include "base/functors.h"
 
-template <class Type,
-		  class Compare = std::less<Type>>
+template < class Key >
 	class set
 	{
 	public:
