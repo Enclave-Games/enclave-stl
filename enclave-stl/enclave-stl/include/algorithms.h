@@ -1,6 +1,3 @@
-#ifndef ENCLAVE_STL_ALGORITHMS
-#define ENCLAVE_STL_ALGORITHMS
-
 #include <vector>
 #include <exception>
 #include <random>
@@ -8,6 +5,9 @@
 #include "iterator.h"
 #include "utility.h"
 #include <iostream>
+
+#ifndef ENCLAVE_STL_ALGORITHMS
+#define ENCLAVE_STL_ALGORITHMS
 
 
 namespace ealg
@@ -25,13 +25,15 @@ namespace ealg
 		ealg::sort(start, end, std::less<>());
 	}
 
+
 	template< class RandomIt, class Compare >
 	void sort(const RandomIt start, const RandomIt end, Compare comp)
 	{
 		const auto first = eutil::get_unwrapped(start);
 		const auto last = eutil::get_unwrapped(end);
-		std::_Sort_unchecked(first, last, last - first, _Pass_fn(comp));
+		std::_Sort_unchecked(first, last, last - first, std::_Pass_fn(comp));
 	}
+
 
 	template< class ForwardIt, class T >
 	void fill(ForwardIt first, ForwardIt last, const T& value)
@@ -40,6 +42,7 @@ namespace ealg
 			*first = value;
 		}
 	}
+
 
 	template< class OutputIt, class Size, class T >
 	void fill_n(OutputIt first, Size count, const T& value)
@@ -55,11 +58,11 @@ namespace ealg
 	{
 		if (begin != end)
 		{
-			ForwardIter currentMax = begin;
+			ForwardIter currentMax = eutil::get_unwrapped(begin);
 
 			while (++begin != end)
 			{
-				if (*currentMax < *begin)
+				if (currentMax < *begin)
 				{
 					currentMax = begin;
 				}
@@ -69,12 +72,13 @@ namespace ealg
 		return begin;
 	}
 
+
 	template <typename ForwardIter, typename Compare>
 	ForwardIter max(ForwardIter begin, ForwardIter end, Compare compare)
 	{
 		if (begin != end)
 		{
-			ForwardIter currentMax = begin;
+			ForwardIter currentMax = eutil::get_unwrapped(begin);
 
 			while (++begin != end)
 			{
@@ -88,6 +92,7 @@ namespace ealg
 		return begin;
 	}
 
+
 	template< class InputIt, class UnaryFunction >
 	UnaryFunction for_each(InputIt first, InputIt last, UnaryFunction f)
 	{
@@ -97,6 +102,7 @@ namespace ealg
 		}
 		return f;
 	}
+
 
 	template< class InputIt, class Size, class UnaryFunction >
 	InputIt for_each_n(InputIt first, Size n, UnaryFunction f)
@@ -386,7 +392,7 @@ namespace ealg
 	template<class ForwardIt, class T, class Compare>
 	bool binary_search(ForwardIt first, ForwardIt last, const T& value, Compare comp)
 	{
-		first = std::lower_bound(first, last, value, comp);
+		first = ealg::lower_bound(first, last, value, comp);
 		return (!(first == last) && !(comp(value, *first)));
 	}
 
