@@ -92,4 +92,4 @@ namespace estl
 
 
 
-#endif // !ENCAVE_STL_LINKED_LIST
+#endif
