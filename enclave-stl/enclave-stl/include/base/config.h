@@ -9,6 +9,22 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 
+#ifdef ENCLAVE_DEBUG
+	#if defined(ENCLAVE_DEBUG) || defined(DEBUG)
+	#define ENCLAVE_DEBUG 1
+	#else
+		#define ENCLAVE_DEBUG 0
+	#endif
+#endif
+
+#ifdef ENCLAVE_RELEASE
+	#if defined(ENCLAVE_RELEASE) || defined(RELEASE)
+	#define ENCLAVE_RELEASE 1
+	#else
+		#define ENCLAVE_RELEASE 0
+	#endif
+#endif
+
 #define EUTIL_MOVE(var) ::eutil::move(var)
 
 #define ENCLAVE_ASSERT(expression) static_assert(expression, #expression)
@@ -18,7 +34,5 @@
 #define ENCLAVE_CONSTEXPR constexpr
 
 #define ENCLAVE_NOEXC noexcept
-
-typedef size_t SIZE_T;
 
 #endif
