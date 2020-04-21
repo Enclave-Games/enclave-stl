@@ -1,14 +1,15 @@
 #ifndef ENCLAVE_STL_SORT_EXTRA
 #define ENCLAVE_STL_SORT_EXTRA
 
-#include <algorithm>
+#include "base/config.h"
+#include "base/functors.h"
 
 namespace esort
 {
 	template< class RandomIt >
 	void stable_sort(RandomIt first, RandomIt last)
 	{
-		return esort::stable_sort(first, last, std::less<>);
+		return esort::stable_sort(first, last, efun::less<>());
 	}
 
 	template< class RandomIt, class Compare >
@@ -26,7 +27,7 @@ namespace esort
 	template< class RandomIt >
 	void partial_sort(RandomIt first, RandomIt middle, RandomIt last)
 	{
-		return partial_sort(first, last, std::less<>);
+		return partial_sort(first, last, efun::less<>());
 	}
 
 	template< class RandomIt, class Compare >
