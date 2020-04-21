@@ -1,3 +1,10 @@
+/////////////////////////////////////////////////////////////////////////////
+// Copyright (c) Enclave Games Inc. All rights reserved.
+/////////////////////////////////////////////////////////////////////////////
+
+#ifndef ENCLAVE_STL_ALGORITHMS
+#define ENCLAVE_STL_ALGORITHMS
+
 #include <vector>
 #include <exception>
 #include <random>
@@ -5,10 +12,6 @@
 #include "iterator.h"
 #include "utility.h"
 #include <iostream>
-
-#ifndef ENCLAVE_STL_ALGORITHMS
-#define ENCLAVE_STL_ALGORITHMS
-
 
 namespace ealg
 {
