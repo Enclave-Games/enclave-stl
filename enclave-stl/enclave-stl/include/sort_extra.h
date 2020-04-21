@@ -9,7 +9,7 @@ namespace esort
 	template< class RandomIt >
 	void stable_sort(RandomIt first, RandomIt last)
 	{
-		return esort::stable_sort(first, last, efun::less<>());
+		esort::stable_sort(first, last, efun::less<>());
 	}
 
 	template< class RandomIt, class Compare >
@@ -27,13 +27,25 @@ namespace esort
 	template< class RandomIt >
 	void partial_sort(RandomIt first, RandomIt middle, RandomIt last)
 	{
-		return partial_sort(first, last, efun::less<>());
+		partial_sort(first, last, efun::less<>());
 	}
 
 	template< class RandomIt, class Compare >
 	void partial_sort(RandomIt first, RandomIt middle, RandomIt last, Compare comp)
 	{
 
+	}
+
+	template < class RandomIt >
+	void shell_sort(RandomIt first, RandomIt last)
+	{
+		esort::shell_sort(first, last, efun::less<>());
+	}
+
+	template< class RandomIt, class Compare >
+	void shell_sort(RandomIt first, RandomIt last, Compare comp)
+	{
+		
 	}
 }
 
