@@ -28,14 +28,12 @@ namespace eutil
 	}
 
 	template <class Iter, std::enable_if_t<!std::_Unwrappable_v<Iter>, int> = 0>
-	constexpr const Iter && get_unwrapped(
-		const Iter && It) {
+	constexpr const Iter&& get_unwrapped(const Iter && It) {
 		return static_cast<const Iter&&>(It);
 	}
 
 	template <class Iter, std::enable_if_t<!std::_Unwrappable_v<Iter>, int> = 0>
-	constexpr const Iter & get_unwrapped(
-		const Iter & It) {
+	constexpr const Iter & get_unwrapped(const Iter & It) {
 		return It;
 	}
 
