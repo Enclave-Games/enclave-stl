@@ -5,13 +5,10 @@
 #ifndef ENCLAVE_STL_ALGORITHMS
 #define ENCLAVE_STL_ALGORITHMS
 
-#include <vector>
-#include <exception>
 #include <random>
 #include "base/config.h"
 #include "iterator.h"
 #include "utility.h"
-#include <iostream>
 
 namespace ealg
 {
