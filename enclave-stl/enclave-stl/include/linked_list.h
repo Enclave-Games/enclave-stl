@@ -1,7 +1,9 @@
 #ifndef ENCAVE_STL_LINKED_LIST
 #define ENCAVE_STL_LINKED_LIST
 
-#include <iostream>
+#include "base/config.h"
+#include "algorithms.h"
+#include "iterator.h"
 
 namespace estl
 {
