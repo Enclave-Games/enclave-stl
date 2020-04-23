@@ -5,10 +5,10 @@
 
 namespace efun
 {
-	template <typename _Ty = void>
+	template <typename T = void>
 	struct less
 	{
-		ENCLAVE_CONSTEXPR bool operator()(_Ty&& left, _Ty&& right) const
+		ENCLAVE_CONSTEXPR bool operator()(const T&& left, const T&& right) const
 		{
 			return left < right;
 		}
@@ -17,8 +17,8 @@ namespace efun
 	template <>
 	struct less<void>
 	{
-		template <class _Ty1, class _Ty2>
-		ENCLAVE_CONSTEXPR bool operator()(_Ty1&& left, _Ty2&& right) const
+		template <class T, class Ty2>
+		ENCLAVE_CONSTEXPR bool operator()(const T&& left, const Ty2&& right) const
 		{
 			return left < right;
 		}
@@ -27,7 +27,7 @@ namespace efun
 	template< class T = void >
 	struct equal_to
 	{
-		ENCLAVE_CONSTEXPR bool operator()(T&& left, T&& right) const
+		ENCLAVE_CONSTEXPR bool operator()(const T&& left, const T&& right) const
 		{
 			return left == right;
 		}
@@ -36,8 +36,8 @@ namespace efun
 	template<>
 	struct equal_to<void>
 	{
-		template <class _Ty1, class _Ty2>
-		ENCLAVE_CONSTEXPR bool operator()(_Ty1&& left, _Ty2&& right) const
+		template <class T, class Ty2>
+		ENCLAVE_CONSTEXPR bool operator()(const T&& left, const Ty2&& right) const
 		{
 			return left == right;
 		}
@@ -46,7 +46,7 @@ namespace efun
 	template< class T = void >
 	struct not_equal_to
 	{
-		ENCLAVE_CONSTEXPR bool operator()(T&& left, T&& right) const
+		ENCLAVE_CONSTEXPR bool operator()(const T&& left, const T&& right) const
 		{
 			return left != right;
 		}
@@ -55,8 +55,8 @@ namespace efun
 	template<>
 	struct not_equal_to<void>
 	{
-		template <class _Ty1, class _Ty2>
-		ENCLAVE_CONSTEXPR bool operator()(_Ty1&& left, _Ty2&& right) const
+		template <class T, class Ty2>
+		ENCLAVE_CONSTEXPR bool operator()(const T&& left, const Ty2&& right) const
 		{
 			return left != right;
 		}
@@ -65,7 +65,7 @@ namespace efun
 	template< class T = void >
 	struct greater
 	{
-		ENCLAVE_CONSTEXPR bool operator()(T&& left, T&& right) const
+		ENCLAVE_CONSTEXPR bool operator()(const T&& left, const T&& right) const
 		{
 			return left > right;
 		}
@@ -74,8 +74,8 @@ namespace efun
 	template<>
 	struct greater<void>
 	{
-		template <class _Ty1, class _Ty2>
-		ENCLAVE_CONSTEXPR bool operator()(_Ty1&& left, _Ty2&& right) const
+		template <class T, class Ty2>
+		ENCLAVE_CONSTEXPR bool operator()(const T&& left, const Ty2&& right) const
 		{
 			return left > right;
 		}
@@ -84,7 +84,7 @@ namespace efun
 	template< class T = void >
 	struct greater_equal
 	{
-		ENCLAVE_CONSTEXPR bool operator()(T&& left, T&& right) const
+		ENCLAVE_CONSTEXPR bool operator()(const T&& left, const T&& right) const
 		{
 			return left >= right;
 		}
@@ -93,17 +93,17 @@ namespace efun
 	template<>
 	struct greater_equal<void>
 	{
-		template <class _Ty1, class _Ty2>
-		ENCLAVE_CONSTEXPR bool operator()(_Ty1&& left, _Ty2&& right) const
+		template <class T, class Ty2>
+		ENCLAVE_CONSTEXPR bool operator()(const T&& left, const Ty2&& right) const
 		{
 			return left >= right;
 		}
 	};
 
-	template < typename _Ty = void >
+	template < typename T = void >
 	struct less_equal
 	{
-		ENCLAVE_CONSTEXPR bool operator()(_Ty&& left, _Ty&& right) const
+		ENCLAVE_CONSTEXPR bool operator()(const T&& left, const T&& right) const
 		{
 			return left <= right;
 		}
@@ -112,10 +112,64 @@ namespace efun
 	template <>
 	struct less_equal<void>
 	{
-		template <class _Ty1, class _Ty2>
-		ENCLAVE_CONSTEXPR bool operator()(_Ty1&& left, _Ty2&& right) const
+		template <class T, class Ty2>
+		ENCLAVE_CONSTEXPR bool operator()(const T&& left, const Ty2&& right) const
 		{
 			return left <= right;
+		}
+	};
+
+	template< class T = int >
+	struct plus
+	{
+		ENCLAVE_CONSTEXPR T operator()(const T& left, const T& right) const
+		{
+			return left + right;
+		}
+	};
+
+	template< class T = int >
+	struct minus
+	{
+		ENCLAVE_CONSTEXPR T operator()(const T& left, const T& right) const
+		{
+			return left - right;
+		}
+	};
+
+	template< class T = int >
+	struct multiplies
+	{
+		ENCLAVE_CONSTEXPR T operator()(const T& left, const T& right) const
+		{
+			return left * right;
+		}
+	};
+
+	template< class T = int >
+	struct divides
+	{
+		ENCLAVE_CONSTEXPR T operator()(const T& left, const T& right) const
+		{
+			return left / right;
+		}
+	};
+
+	template< class T = int >
+	struct modulus
+	{
+		ENCLAVE_CONSTEXPR T operator()(const T& left, const T& right) const
+		{
+			return left % right;
+		}
+	};
+
+	template< class T = int >
+	struct negate
+	{
+		ENCLAVE_CONSTEXPR T operator()(const T& arg) const
+		{
+			return -arg;
 		}
 	};
 }
