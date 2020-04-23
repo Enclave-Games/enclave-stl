@@ -22,7 +22,7 @@ namespace ealg
 	template < class RandomIt >
 	void sort(const RandomIt start, const RandomIt end)
 	{
-		ealg::sort(start, end, std::less<>());
+		sort(start, end, std::less<>());
 	}
 
 
@@ -251,7 +251,8 @@ namespace ealg
 	std::pair<ForwardIt, ForwardIt>
 		minmax_element(ForwardIt first, ForwardIt last)
 	{
-		return std::minmax_element(first, last);
+		using value_type = typename std::iterator_traits<ForwardIt>::value_type;
+		return minmax_element(first, last, std::less<value_type>());
 	}
 
 	template<class ForwardIt, class Compare >
@@ -277,7 +278,7 @@ namespace ealg
 
 		while (++first != last)
 		{
-			ForwardIt temp = first;
+			auto temp = first;
 
 			if (++first == last) 
 			{
@@ -293,7 +294,22 @@ namespace ealg
 			}
 			else
 			{
-				
+				if (comp(*first, *temp)) {
+					if (comp(*first, *min)) {
+						min = first;
+					}
+					if (!(comp(*temp, *max))) {
+						max = temp;
+					}
+				}
+				else {
+					if (comp(*temp, *min)) {
+						min = temp;
+					}
+					if (!(comp(*first, *max))) {
+						max = first;
+					}
+				}
 			}
 		}
 		return { min, max };
