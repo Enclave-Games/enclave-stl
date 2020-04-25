@@ -5,4 +5,4 @@ project(${This} VERSION 1.0 C CXX)
 #-------------------------------------------------------------------------------------------
 # Include dirs
 #-------------------------------------------------------------------------------------------
-target_include_directories(ESTL PUBLIC include)
+target_include_directories(${This} PUBLIC include)
