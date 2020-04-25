@@ -18,7 +18,7 @@ namespace esort
 		RandomIt pfirst = middle;
 		RandomIt psecond = pfirst + 1;
 
-		for (;;)
+		FOREVER_CYCLE
 		{
 
 		}

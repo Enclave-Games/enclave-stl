@@ -1,6 +1,11 @@
 #ifndef ENCLAVED_STL_RED_BLACK_TREE
 #define ENCLAVED_STL_RED_BLACK_TREE
 
+#include "algorithms.h"
+#include "base/config.h"
+#include "base/functors.h"
+#include "base/xmath.h"
+
 namespace estl
 {
 	enum rb_tree_color

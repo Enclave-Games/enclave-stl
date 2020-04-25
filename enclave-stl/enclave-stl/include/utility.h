@@ -2,6 +2,8 @@
 #define ENCLAVE_STL_UTILITY
 
 #include "base/config.h"
+#include "type_traits.h"
+#include <iostream>
 
 namespace eutil
 {
