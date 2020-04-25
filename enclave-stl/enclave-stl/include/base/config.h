@@ -9,6 +9,13 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 
+
+#if ((__cplusplus >= 201103L) || (_MSC_VER >= 1900))
+	#define _ESTL_NATIVE_CPP11_SUPPORT
+	#define _ESTL_NATIVE_CPP11_TYPES_SUPPORT
+#endif
+
+
 #ifdef ENCLAVE_DEBUG
 	#if defined(ENCLAVE_DEBUG) || defined(DEBUG)
 	#define ENCLAVE_DEBUG 1
@@ -27,12 +34,19 @@
 
 #define EUTIL_MOVE(var) ::eutil::move(var)
 
-#define ENCLAVE_ASSERT(expression) static_assert(expression, #expression)
+#ifdef _ESTL_NATIVE_CPP11_SUPPORT
+	#define ENCLAVE_ASSERT(expression) static_assert(expression, #expression)
+	#define ENCLAVE_ASSERT_MSG(expression, message) static_assert(expression, message)
+#endif
 
-#define ENCLAVE_ASSERT_MSG(expression, message) static_assert(expression, message)
+#if !defined(FOREVER_CYCLE)
+	#define FOREVER_CYCLE for(;;)
+#endif
 
 #define ENCLAVE_CONSTEXPR constexpr
 
 #define ENCLAVE_NOEXC noexcept
+
+#define COUNT_OF(arr) sizeof(arr) / sizeof(arr[0])
 
 #endif
