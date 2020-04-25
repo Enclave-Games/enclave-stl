@@ -3,6 +3,7 @@
 
 #include "base/config.h"
 #include "base/functors.h"
+#include "base/red_black_tree.h"
 
 template < class Key >
 	class set
