@@ -3,9 +3,46 @@
 
 #include "base/config.h"
 #include "base/functors.h"
+#include "utility.h"
+
 
 namespace esort
 {
+	template < class RandomIt >
+	std::pair<RandomIt, RandomIt> partition(RandomIt start, RandomIt end)
+	{
+		auto start_unwrapped = eutil::get_unwrapped(start);
+		auto end_unwrapped = eutil::get_unwrapped(end);
+
+		RandomIt middle = start + (end - start);
+		RandomIt pfirst = middle;
+		RandomIt psecond = pfirst + 1;
+
+		for (;;)
+		{
+
+		}
+	}
+
+	template< class RandomIt >
+	void quick_sort(RandomIt start, RandomIt end)
+	{
+		esort::quick_sort(start, end, std::less<>());
+	}
+
+	template< class RandomIt, class Compare >
+	void quick_sort(RandomIt start, RandomIt end, Compare comp)
+	{
+		if (start < end)
+		{
+			const auto middle = std::_Partition_by_median_guess_unchecked(start, end, comp);
+			quick_sort(start, middle.first, comp);
+			quick_sort(middle.second, end, comp);
+		}
+
+	}
+
+
 	template< class RandomIt >
 	void stable_sort(RandomIt first, RandomIt last)
 	{
