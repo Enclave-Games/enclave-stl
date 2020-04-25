@@ -5,6 +5,7 @@
 #include "sequance_iterator.h"
 #include "algorithms.h"
 #include "utility.h"
+#include "iterator.h"
 
 namespace estl
 {
